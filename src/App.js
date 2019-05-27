@@ -1,17 +1,15 @@
 import React from "react";
 import "./App.css";
 import Home from "./components/home/Home";
-import Introduction from "./components/introduction/Introduction";
 import BgCanvas from "./components/bgcanvas/BgCanvas/BgCanvas";
-import Projects from "./components/projects/Projects";
+import Nav from './components/nav/Nav';
 
 function App() {
   return (
     <div className="App">
       <BgCanvas />
+      <Nav />
       <Home />
-      <Introduction />
-      <Projects />
     </div>
   );
 }

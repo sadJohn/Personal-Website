@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import photo from "../../../assets/images/profile.jpg";
+import photo from "../../../../assets/images/profile.jpg";
 
 export const StyledProfile = styled.div`
   display: flex;

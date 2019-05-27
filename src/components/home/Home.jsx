@@ -1,12 +1,14 @@
 import React from "react";
-import Nav from "./Nav/Nav";
 import Welcome from "./Welcome/Welcome";
+import Introduction from "./introduction/Introduction";
+import Projects from "./projects/Projects";
 
 const Home = props => {
   return (
     <>
-      <Nav />
-      <Welcome/>
+      <Welcome />
+      <Introduction />
+      <Projects />
     </>
   );
 };

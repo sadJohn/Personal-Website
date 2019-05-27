@@ -1,5 +1,5 @@
 import React from "react";
-import { StyledProfile, StyledPhoto, StyledName } from "./ProfileStyle";
+import { StyledProfile, StyledPhoto, StyledName } from "./style";
 
 const Profile = props => {
   return (

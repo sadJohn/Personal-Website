@@ -5,7 +5,7 @@ import {
   StyledLi,
   StyledA,
   StyledFixed
-} from "./NavStyle";
+} from "./style";
 
 const Nav = props => {
   return (

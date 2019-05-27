@@ -1,5 +1,5 @@
 import React from "react";
-import { StyledInfo } from "./InfoStyle";
+import { StyledInfo } from "./style";
 
 const Info = props => {
   return <StyledInfo>My Name is Johan</StyledInfo>;
