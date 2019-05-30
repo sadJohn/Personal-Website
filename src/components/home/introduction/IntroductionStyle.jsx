@@ -1,10 +1,8 @@
 import styled from "styled-components";
+import { Wrapper } from "../../common/wrapper/style";
 
-export const StyledIntro = styled.div`
+export const StyledIntro = styled(Wrapper)`
   display: flex;
   justify-content: space-around;
   align-items: center;
-  width: 100%;
-  height: 90vh;
-  margin-top: 10vh;
 `;

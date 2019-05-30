@@ -1,13 +1,11 @@
 import styled from "styled-components";
+import { Wrapper } from "../../common/wrapper/style";
 
-export const Container = styled.div`
+export const Container = styled(Wrapper)`
   position: relative;
   display: flex;
   justify-content: space-around;
   align-items: center;
-  width: 100%;
-  height: 90vh;
-  margin-top: 10vh;
   padding: 0 15em;
 `;
 

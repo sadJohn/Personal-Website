@@ -1,11 +1,10 @@
-import styled from 'styled-components'
+import styled from "styled-components";
+import { Wrapper } from "../../common/wrapper/style";
 
-export const StyledWelcome = styled.div`
-font-family: 'Indie Flower', cursive;
-height: 90vh;
-text-align:center;
-line-height: 90vh;
-font-size: 7em;
-margin-top: 10vh;
-color: white;
-`
+export const StyledWelcome = styled(Wrapper)`
+  font-family: "Indie Flower", cursive;
+  text-align: center;
+  line-height: 90vh;
+  font-size: 7em;
+  color: white;
+`;
