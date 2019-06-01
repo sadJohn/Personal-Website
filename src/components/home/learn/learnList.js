@@ -8,46 +8,53 @@ import three from "../../../assets/images/three.png";
 
 const learnList = [
   {
-    key: 0,
+    id: 0,
     href: "https://reactjs.org/",
     src: react,
-    alt: "React.js"
+    alt: "React.js",
+    phase: 0
   },
   {
-    key: 1,
+    id: 1,
     href: "https://javascript.info/",
     src: javascript,
-    alt: "Javascript"
+    alt: "Javascript",
+    phase: 0
   },
   {
-    key: 2,
+    id: 2,
     href: "https://nodejs.org/en/",
     src: node,
-    alt: "Node.js"
+    alt: "Node.js",
+    phase: 1
   },
   {
-    key: 3,
+    id: 3,
     href: "https://graphql.cn/",
     src: graphql,
-    alt: "GraphQL"
+    alt: "GraphQL",
+    phase: 2
   },
   {
-    key: 4,
+    id: 4,
     href: "https://www.typescriptlang.org/",
     src: typescript,
-    alt: "TypeScript"
+    alt: "TypeScript",
+    phase: 1
   },
   {
-    key: 5,
+    id: 5,
     href: "https://webpack.js.org/",
     src: webpack,
-    alt: "webpack"
+    alt: "webpack",
+    phase: 2
   },
   {
-    key: 6,
+    id: 6,
     href: "https://threejs.org/",
     src: three,
-    alt: "Three.js"
+    alt: "Three.js",
+    phase: 1
   },
 ]
 

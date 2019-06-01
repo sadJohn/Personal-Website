@@ -10,32 +10,32 @@ const Contact = () => {
       <Ul>
         <Li>
           <A href="https://www.facebook.com/johan.liebert.94617">
-            <i class="fab fa-facebook" />
+            <i className="fab fa-facebook" />
           </A>
         </Li>
         <Li>
           <A href="https://www.instagram.com/sadotibo/">
-            <i class="fab fa-instagram" />
+            <i className="fab fa-instagram" />
           </A>
         </Li>
         <Li>
           <A href="https://www.weibo.com/5184899549">
-            <i class="fab fa-weibo" />
+            <i className="fab fa-weibo" />
           </A>
         </Li>
         <Li>
           <A href="https://github.com/sadJohn">
-            <i class="fab fa-github" />
+            <i className="fab fa-github" />
           </A>
         </Li>
         <Li>
           <A href="">
-            <i class="far fa-envelope" />
+            <i className="far fa-envelope" />
           </A>
         </Li>
       </Ul>
       <div>
-        <i class="far fa-copyright" />2019 Johan, All rights reserved. Web
+        <i className="far fa-copyright" />2019 Johan, All rights reserved. Web
         developer.
       </div>
     </Container>
