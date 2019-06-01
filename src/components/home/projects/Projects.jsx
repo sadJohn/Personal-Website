@@ -3,7 +3,7 @@ import ImgLink from "../../common/imglink/ImgLink";
 import { Container, Title } from "./style";
 import projects from "./project";
 
-const Projects = () => {
+const Projects = React.memo(() => {
   return (
     <Container>
       <Title>Here are some of my Projects</Title>
@@ -12,6 +12,6 @@ const Projects = () => {
       ))}
     </Container>
   );
-};
+});
 
 export default Projects;
