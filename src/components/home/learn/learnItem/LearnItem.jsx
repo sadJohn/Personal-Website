@@ -7,7 +7,7 @@ const LearnItem = React.memo(({ id, href, src, alt, phase, onClick }) => {
       ((window.innerWidth - 300) / 3) * Math.random() +
       phase * ((window.innerWidth - 300) / 3) +
       phase * 100,
-    y: Math.random() * (window.innerHeight * 0.9 - 100) - 60
+    y: Math.random() * (window.innerHeight * 0.8 - 100) - 60
   });
 
   useEffect(() => {
@@ -18,13 +18,17 @@ const LearnItem = React.memo(({ id, href, src, alt, phase, onClick }) => {
         phase * 100,
       y: Math.random() * (window.innerHeight * 0.8 - 100) - 60
     });
+    return () => {};
   }, [phase]);
 
   useEffect(() => {
+    let x;
+    let y;
     let dx = Math.random() * 2 - 1;
     let dy = Math.random() * 2 - 1;
-    let x, y;
-    function animate() {
+    let intervalID;
+
+    intervalID = setInterval(() => {
       setPosition(prevPosition => {
         if (
           prevPosition.x > ((phase + 1) * window.innerWidth) / 3 - 100 ||
@@ -42,9 +46,10 @@ const LearnItem = React.memo(({ id, href, src, alt, phase, onClick }) => {
         y = prevPosition.y + dy;
         return { x, y };
       });
-      requestAnimationFrame(animate);
-    }
-    animate();
+    }, 0);
+    return () => {
+      clearInterval(intervalID);
+    };
   }, [phase]);
   return (
     <StyledLearn

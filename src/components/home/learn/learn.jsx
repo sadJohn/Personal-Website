@@ -20,13 +20,16 @@ const Learn = React.memo(() => {
         <Title>Learning...</Title>
         <Title>NotYet!</Title>
       </Category>
-      {list.map(learnListItem => (
-        <LearnItem
-          key={learnListItem.id}
-          {...learnListItem}
-          onClick={moveHandler}
-        />
-      ))}
+      {list.map(learnListItem => {
+        console.log('learnListItem.phase = ', learnListItem.phase)
+        return (
+          <LearnItem
+            key={learnListItem.id}
+            {...learnListItem}
+            onClick={moveHandler}
+          />
+        )
+      })}
     </Container>
   );
 });
