@@ -18,7 +18,6 @@ const LearnItem = React.memo(({ id, href, src, alt, phase, onClick }) => {
         phase * 100,
       y: Math.random() * (window.innerHeight * 0.8 - 100) - 60
     });
-    return () => {};
   }, [phase]);
 
   useEffect(() => {
@@ -57,10 +56,10 @@ const LearnItem = React.memo(({ id, href, src, alt, phase, onClick }) => {
         transform: `translate(${position.x}px,${position.y}px)`
       }}
     >
-      <Menu className="menu">
+      <Menu className="menu" phase={phase}>
         {[0, 1, 2].map(p =>
           p === phase ? null : (
-            <MenuItem key={p} onClick={onClick} value={p} data-id={id}>
+            <MenuItem key={p} onClick={onClick} data-value={p} data-id={id}>
               {["Confident", "Learning", "NotYet"][p]}
             </MenuItem>
           )

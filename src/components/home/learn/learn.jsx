@@ -6,11 +6,12 @@ import LearnItem from "./learnItem/LearnItem";
 const Learn = React.memo(() => {
   const [list, setList] = useState(learnList);
   const moveHandler = e => {
+    debugger
     const newList = [...list];
     const targetIndex = learnList.findIndex(
       learnListItem => learnListItem.id === +e.target.dataset.id
     );
-    newList[targetIndex].phase = +e.target.value;
+    newList[targetIndex].phase = +e.target.dataset.value;
     setList(newList);
   };
   return (
@@ -21,7 +22,6 @@ const Learn = React.memo(() => {
         <Title>NotYet!</Title>
       </Category>
       {list.map(learnListItem => {
-        console.log('learnListItem.phase = ', learnListItem.phase)
         return (
           <LearnItem
             key={learnListItem.id}

@@ -8,7 +8,7 @@ export const Link = styled.a`
   overflow: hidden;
   text-decoration: none;
 
-  :hover img {
+  :hover img {  
     transform: scale(1.5)
   }
 `;
