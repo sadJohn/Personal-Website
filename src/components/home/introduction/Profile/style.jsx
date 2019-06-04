@@ -16,7 +16,7 @@ export const StyledPhoto = styled.div`
   background: url(${photo}) no-repeat;
   background-size: 10em;
   border-radius: 5em;
-  
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26), 0 2px 10px 0 rgba(0, 0, 0, 0.22);
 `;
 
 export const StyledName = styled.div`

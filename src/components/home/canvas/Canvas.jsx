@@ -1,8 +1,8 @@
 import React, { useRef, useEffect } from "react";
-import { StyledBgCanvas } from "./BgcanvasStyle";
-import {Circle, mouse} from "./Circle";
+import { StyledBgCanvas } from "./style";
+import { Circle, mouse } from "./Circle";
 
-const BgCanvas = React.memo(() => {
+const Canvas = React.memo(() => {
   const canvasRef = useRef(null);
 
   useEffect(() => {
@@ -16,6 +16,7 @@ const BgCanvas = React.memo(() => {
     };
   }, []);
   useEffect(() => {
+    let animationID;
     const canvas = canvasRef.current;
     canvas.width =
       parseInt(window.getComputedStyle(canvas, null)["width"]) *
@@ -37,15 +38,19 @@ const BgCanvas = React.memo(() => {
       circleArray.push(new Circle(ctx, x, y, vx, vy, radius, circleColor));
     }
     function animate() {
-      requestAnimationFrame(animate);
+      animationID = requestAnimationFrame(animate);
       ctx.clearRect(0, 0, window.innerWidth, window.innerHeight * 2);
       circleArray.forEach(circle => {
         circle.update();
       });
     }
     animate();
+
+    return () => {
+      cancelAnimationFrame(animationID);
+    };
   }, []);
   return <StyledBgCanvas ref={canvasRef} />;
 });
 
-export default BgCanvas;
+export default Canvas;

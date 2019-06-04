@@ -1,32 +1,28 @@
 import React from "react";
-import {
-  StyledNav,
-  StyledUl,
-  StyledLi,
-  StyledA,
-  StyledFixed
-} from "./style";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import { StyledNav, Ul, Li, Link, Fixed } from "./style";
+import Feedback from "./../feedback/Feedback";
+import Home from "./../home/Home";
 
-const Nav = props => {
+const Nav = () => {
   return (
-    <StyledFixed>
-      <StyledNav>
-        <StyledUl>
-          <StyledLi>
-            <StyledA href="/">HOME</StyledA>
-          </StyledLi>
-          <StyledLi>
-            <StyledA href="/">ABOUT</StyledA>
-          </StyledLi>
-          <StyledLi>
-            <StyledA href="/">ABOUT</StyledA>
-          </StyledLi>
-          <StyledLi>
-            <StyledA href="/">ABOUT</StyledA>
-          </StyledLi>
-        </StyledUl>
-      </StyledNav>
-    </StyledFixed>
+    <Router>
+      <Fixed>
+        <StyledNav>
+          <Ul>
+            <Li>
+              <Link to="/">HOME</Link>
+            </Li>
+            <Li>
+              <Link to="/feedback/">FEEDBACK</Link>
+            </Li>
+          </Ul>
+        </StyledNav>
+      </Fixed>
+
+      <Route path="/" exact component={Home} />
+      <Route path="/feedback/" component={Feedback} />
+    </Router>
   );
 };
 
