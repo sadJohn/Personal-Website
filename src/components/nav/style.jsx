@@ -34,3 +34,8 @@ export const Link = styled(a)`
   text-decoration: none;
   color: white;
 `;
+
+export const Div = styled.div`
+  cursor: pointer;
+  color: white;
+`;

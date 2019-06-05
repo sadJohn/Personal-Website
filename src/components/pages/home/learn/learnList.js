@@ -1,10 +1,10 @@
-import react from "../../../assets/images/react.png";
-import javascript from "../../../assets/images/javascript.png";
-import node from "../../../assets/images/node.png";
-import graphql from "../../../assets/images/graphql.png";
-import typescript from "../../../assets/images/typescript.png";
-import webpack from "../../../assets/images/webpack.png";
-import three from "../../../assets/images/three.png";
+import react from "../../../../assets/images/react.png";
+import javascript from "../../../../assets/images/javascript.png";
+import node from "../../../../assets/images/node.png";
+import graphql from "../../../../assets/images/graphql.png";
+import typescript from "../../../../assets/images/typescript.png";
+import webpack from "../../../../assets/images/webpack.png";
+import three from "../../../../assets/images/three.png";
 
 const learnList = [
   {

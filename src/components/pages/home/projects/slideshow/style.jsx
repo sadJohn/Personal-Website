@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import ImgLink from "../../../common/imglink/ImgLink";
+import ImgLink from "../../../../common/imglink/ImgLink";
 
 export const Container = styled.div`
   width: 100%;
@@ -21,6 +21,7 @@ export const SlideshowBtn = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
+  cursor: pointer;
 
   & i {
     font-size: 4em;
@@ -29,5 +30,8 @@ export const SlideshowBtn = styled.div`
   :hover {
     box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.28),
       0 4px 15px 0 rgba(0, 0, 0, 0.25);
+  }
+  :active {
+    box-shadow: none;
   }
 `;

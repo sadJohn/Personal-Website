@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Link, Img } from "../../../common/imglink/style";
+import { Link, Img } from "../../../../common/imglink/style";
 
 export const LearnLink = styled(Link)`
   width: 100px;

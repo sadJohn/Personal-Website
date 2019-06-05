@@ -6,6 +6,22 @@ const Canvas = React.memo(() => {
   const canvasRef = useRef(null);
 
   useEffect(() => {
+    const canvas = canvasRef.current;
+    const setCanvas = () => {
+      canvas.width =
+        parseInt(window.getComputedStyle(canvas, null)["width"]) *
+        devicePixelRatio;
+      canvas.height =
+        parseInt(window.getComputedStyle(canvas, null)["height"]) *
+        devicePixelRatio;
+    };
+    window.addEventListener("resize", setCanvas);
+    return () => {
+      window.removeEventListener("resize", setCanvas);
+    };
+  }, []);
+
+  useEffect(() => {
     function mousemoveHandler(e) {
       mouse.x = e.pageX;
       mouse.y = e.pageY;

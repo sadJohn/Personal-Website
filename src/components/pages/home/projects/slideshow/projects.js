@@ -1,7 +1,7 @@
-import caculator from "../../../../assets/images/caculator.png";
-import markdown from "../../../../assets/images/markdown.png";
-import canvas from "../../../../assets/images/canvas.png";
-import quotes from "../../../../assets/images/quotes.png";
+import caculator from "../../../../../assets/images/caculator.png";
+import markdown from "../../../../../assets/images/markdown.png";
+import canvas from "../../../../../assets/images/canvas.png";
+import quotes from "../../../../../assets/images/quotes.png";
 
 const projects = [
   {

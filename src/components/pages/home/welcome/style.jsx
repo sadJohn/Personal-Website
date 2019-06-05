@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Wrapper } from "../../common/wrapper/style";
+import { Wrapper } from "../../../common/wrapper/style";
 
 export const StyledWelcome = styled(Wrapper)`
   font-family: "Indie Flower", cursive;
