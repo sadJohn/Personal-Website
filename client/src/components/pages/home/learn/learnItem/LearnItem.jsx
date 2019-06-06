@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { LearnLink, LearnImg, StyledLearn, Menu, MenuItem } from "./style";
+import { TweenMax } from "gsap";
 
 const LearnItem = React.memo(({ id, href, src, alt, phase, onClick }) => {
   const [position, setPosition] = useState({
@@ -19,6 +20,10 @@ const LearnItem = React.memo(({ id, href, src, alt, phase, onClick }) => {
       y: Math.random() * (window.innerHeight * 0.8 - 100) - 60
     });
   }, [phase]);
+
+  // useEffect(() => {
+  //   TweenMax.from(learnRef.current, 0.5, { scale: 0 });
+  // },[]);
 
   useEffect(() => {
     let x;

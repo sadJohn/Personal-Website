@@ -5,8 +5,8 @@ import Feedback from "./../pages/feedback/Feedback";
 import Home from "./../pages/home/Home";
 import AuthContext from "./../../context/AuthContext";
 
-const Nav = ({onLogin, onRegiste}) => {
-  const { isLogin } = useContext(AuthContext);
+const Nav = ({ onLogin, onRegiste }) => {
+  const { isLogin, username } = useContext(AuthContext);
   return (
     <Router>
       <Fixed>
@@ -19,7 +19,7 @@ const Nav = ({onLogin, onRegiste}) => {
               <Link to="/feedback/">FEEDBACK</Link>
             </Li>
             {isLogin ? (
-              <h1>{localStorage.getItem("username")}</h1>
+              <h1>{username}</h1>
             ) : (
               <>
                 <Li>

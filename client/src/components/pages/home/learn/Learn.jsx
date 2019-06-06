@@ -2,17 +2,18 @@ import React, { useState } from "react";
 import learnList from "./learnList";
 import { Container, Category, Title } from "./style";
 import LearnItem from "./learnItem/LearnItem";
+import { TweenMax } from "gsap";
 
 const Learn = React.memo(() => {
   const [list, setList] = useState(learnList);
-  const moveHandler = e => {
-    debugger
+
+  const moveHandler = (e) => {
     const newList = [...list];
     const targetIndex = learnList.findIndex(
       learnListItem => learnListItem.id === +e.target.dataset.id
     );
     newList[targetIndex].phase = +e.target.dataset.value;
-    setList(newList);
+    setList(newList)
   };
   return (
     <Container>
@@ -28,7 +29,7 @@ const Learn = React.memo(() => {
             {...learnListItem}
             onClick={moveHandler}
           />
-        )
+        );
       })}
     </Container>
   );

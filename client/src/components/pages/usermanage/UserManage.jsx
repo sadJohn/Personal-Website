@@ -12,28 +12,42 @@ const UserManage = ({
   const [username, setUsername] = useState("");
   const [pwd, setPwd] = useState("");
 
-  const { setIsLogin } = useContext(AuthContext);
-  const login = () => {
-    if (localStorage.getItem("username") === username) {
-      if(localStorage.getItem("pwd") === pwd){
+  const { setIsLogin, setUser } = useContext(AuthContext);
+  const login = async () => {
+    const response = await fetch("http://localhost:3999/api/users");
+    const users = await response.json();
+    const userIndex = users.findIndex(user => user.username === username);
+
+    if (userIndex !== -1) {
+      if (users[userIndex].pwd === pwd) {
         setIsLogin(true);
+        setUser(users[userIndex].username);
         onLogin();
       } else {
-        console.log("Password is wrong");
+        alert("wrong PWD");
       }
-      
     } else {
-      console.log("No such username");
+      alert("No such User");
     }
   };
-  const registe = () => {
-    console.log(localStorage.getItem("username"))
-    if (localStorage.getItem("username") === null) {
-      localStorage.setItem("username", username);
-      localStorage.setItem("pwd", pwd);
-      onRegiste();
+  const registe = async () => {
+    const response = await fetch("http://localhost:3999/api/users");
+    const users = await response.json();
+    if (users.find(user => user.username === username)) {
+      alert("already registe");
     } else {
-      console.log("aleady registe");
+      const data = { username, pwd };
+
+      const response = await fetch("http://localhost:3999/api/users", {
+        method: "POST",
+        body: JSON.stringify(data),
+        headers: new Headers({
+          "Content-Type": "application/json"
+        })
+      });
+      const done = await response.json();
+      alert(done);
+      onRegiste();
     }
   };
 

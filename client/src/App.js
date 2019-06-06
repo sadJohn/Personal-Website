@@ -6,6 +6,7 @@ import UserManage from "./components/pages/usermanage/UserManage";
 
 const App = () => {
   const [isLogin, setIsLogin] = useState(false);
+  const [username, setUser] = useState(false);
   const [showLogin, setShowLogin] = useState(false);
   const [showRegiste, setShowRegiste] = useState(false);
 
@@ -26,7 +27,7 @@ const App = () => {
     }
   };
   return (
-    <AuthContext.Provider value={{ isLogin, setIsLogin }}>
+    <AuthContext.Provider value={{ isLogin, username, setIsLogin, setUser }}>
       <Nav onLogin={onLogin} onRegiste={onRegiste} />
       {showLogin ? (
         <UserManage showLogin hideModal={hideModal} onLogin={onLogin} />
