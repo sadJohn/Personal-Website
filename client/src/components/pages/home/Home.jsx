@@ -1,5 +1,5 @@
 import React from "react";
-import BgCanvas from "./canvas/Canvas";
+import Canvas from "./canvas/Canvas";
 import Welcome from "./welcome/Welcome";
 import Introduction from "./introduction/Introduction";
 import Projects from "./projects/Projects";
@@ -8,7 +8,7 @@ import Contact from "./contact/Contact";
 
 const Home = React.memo(() => (
   <>
-    <BgCanvas />
+    <Canvas />
     <Welcome />
     <Introduction />
     <Projects />

@@ -1,12 +1,13 @@
 import React from "react";
 import Comment from "./comment/Comment";
+import { Wrapper } from "./style";
 
 const Feedback = () => {
   return (
-    <h1 style={{ marginTop: "20vh" }}>
-      Page Feedback
+    <Wrapper>
+      <h1 style={{height: "500px"}}>Page Feedback</h1>
       <Comment />
-    </h1>
+    </Wrapper>
   );
 };
 

@@ -4,13 +4,13 @@ export const StyledBgCanvas = styled.canvas`
   width: ${window.innerWidth}px;
   height: 400vh;
   background: linear-gradient(
-    rgb(50, 54, 57) 0%,
-    rgb(50, 54, 57) 25%,
-    #ffd747 25%,
-    #ffd747 50%,
-    rgb(50, 54, 57) 50%,
-    rgb(50, 54, 57) 75%,
-    #ffd747 75%
+    #B8D0D9 0%,
+    #B8D0D9 25%,
+    #688EA6 25%,
+    #688EA6 50%,
+    #2E4959 50%,
+    #2E4959 75%,
+    #131D26 75%
   );
   position: absolute;
   left: 0;

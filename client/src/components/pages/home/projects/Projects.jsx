@@ -10,7 +10,7 @@ const Projects = React.memo(() => {
       <Div>
         Want's more?
         <A href="https://github.com/sadJohn">
-          <i class="fab fa-github" />
+          <i className="fab fa-github" />
         </A>
       </Div>
     </Container>

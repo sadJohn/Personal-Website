@@ -9,7 +9,7 @@ export const Container = styled.footer`
   flex-direction: column;
   text-align: center;
   padding: 50px 0;
-  background-color: rgb(50, 54, 57);
+  background-color: #0B0C0D;
   color: #c0c0c0;
 `;
 export const Q = styled.q`

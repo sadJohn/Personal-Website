@@ -43,19 +43,21 @@ const Canvas = React.memo(() => {
     const ctx = canvas.getContext("2d");
 
     const circleArray = [];
+    // const colorArray = ["#FF8A47", "#FC6170", "#FFD747", "#9DD3D9", "#234D51"];
+    const colorArray = ["#73513D", "#2F3B40", "#584D90", "#FAC61A", "#F23838"];
     for (let i = 0; i < 500; i++) {
       const radius = Math.random() * 4 + 1;
       const x = Math.random() * (window.innerWidth - 2 * radius) + radius;
       const y = Math.random() * (window.innerHeight - 2 * radius) + radius;
       const vx = Math.random() - 0.5;
       const vy = Math.random() - 0.5;
-      const circleColor = "#FFD747";
+      const circleColor = colorArray[Math.floor(Math.random() * 5)];
 
       circleArray.push(new Circle(ctx, x, y, vx, vy, radius, circleColor));
     }
     function animate() {
       animationID = requestAnimationFrame(animate);
-      ctx.clearRect(0, 0, window.innerWidth, window.innerHeight * 2);
+      ctx.clearRect(0, 0, window.innerWidth, window.innerHeight * 4);
       circleArray.forEach(circle => {
         circle.update();
       });

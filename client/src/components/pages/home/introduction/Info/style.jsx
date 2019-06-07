@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 
 export const StyledInfo = styled.div`
-  width: 40%;
+  width: 35%;
   height: 70vh;
   border-left: 1px solid black;
   padding-left: 1em;
@@ -12,6 +12,7 @@ export const StyledInfo = styled.div`
 export const Title = styled.div`
   font-size: 3rem;
   font-family: "Indie Flower", cursive;
+  margin-top: 10px;
 `;
 
 export const P = styled.div`
@@ -19,11 +20,9 @@ export const P = styled.div`
 `;
 
 export const Img = styled.img`
-  /* background: rowlet; */
-  /* background-size:  */
   position: absolute;
-  width: 200px;
-  height: 200px;
-  top: -100px;
-  right: 0;
+  width: 180px;
+  height: 180px;
+  top: -120px;
+  right: -50px;
 `;

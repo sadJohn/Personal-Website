@@ -1,7 +1,24 @@
 import React, { useState, useEffect, useContext } from "react";
 import AuthContext from "./../../../../context/AuthContext";
+import {
+  Wrapper,
+  Container,
+  Photo,
+  Img,
+  Input,
+  Button,
+  Editor,
+  CommentsUl,
+  Li,
+  Username,
+  Message,
+  Options,
+  Reply,
+  Vote
+} from "./style";
+import photo from "../../../../assets/images/photo.jpg";
 
-const Feedback = () => {
+const Comment = () => {
   const [comment, setComment] = useState("");
   const [comments, setComments] = useState([]);
   const { isLogin, username } = useContext(AuthContext);
@@ -39,18 +56,39 @@ const Feedback = () => {
   };
 
   return (
-    <div>
-      <input type="text" value={comment} onChange={onCommentChange} />
-      <button onClick={onComment}>Comment</button>
-      <ul>
-        {comments.map(comment => (
-          <li>
-            {comment.username}: {comment.message}
-          </li>
-        ))}
-      </ul>
-    </div>
+    <Wrapper>
+      <Container>
+        <Editor>
+          <Photo>
+            <Img src={photo} alt="user" />
+          </Photo>
+          <Input type="text" value={comment} onChange={onCommentChange} />
+          <Button onClick={onComment}>Comment</Button>
+        </Editor>
+
+        <CommentsUl>
+          {comments.map(comment => (
+            <Li>
+              <Photo>
+                <Img src={photo} alt="user" />
+              </Photo>
+              <Username>{comment.username}</Username>
+              <Message>{comment.message}</Message>
+              <Options>
+                <Vote>
+                  <i class="fas fa-chevron-up" />
+                </Vote>
+                <Vote>
+                  <i class="fas fa-chevron-down" />
+                </Vote>
+                <Reply>Reply</Reply>
+              </Options>
+            </Li>
+          ))}
+        </CommentsUl>
+      </Container>
+    </Wrapper>
   );
 };
 
-export default Feedback;
+export default Comment;

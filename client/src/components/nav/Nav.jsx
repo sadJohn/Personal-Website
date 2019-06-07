@@ -1,32 +1,76 @@
-import React, { useContext } from "react";
+import React, { useEffect, useContext } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import { StyledNav, Ul, Li, Link, Fixed, Div } from "./style";
+import {
+  StyledNav,
+  Ul,
+  Li,
+  Link,
+  Fixed,
+  Div,
+  Photo,
+  PhotoWrapper
+} from "./style";
 import Feedback from "./../pages/feedback/Feedback";
 import Home from "./../pages/home/Home";
 import AuthContext from "./../../context/AuthContext";
+import { TweenMax } from "gsap";
+
+let scrollAction = window.pageYOffset;
+let scrollDirection;
 
 const Nav = ({ onLogin, onRegiste }) => {
   const { isLogin, username } = useContext(AuthContext);
+
+  const scrollEvent = () => {
+    const diffY = scrollAction - window.pageYOffset;
+    if (diffY < 0) {
+      scrollDirection = "down";
+    } else if (diffY > 0) {
+      scrollDirection = "up";
+    }
+    scrollAction = window.pageYOffset;
+
+    if (scrollDirection === "down") {
+      TweenMax.staggerTo(".Nav li", 1, { y: "-200px" }, 0.2);
+    } else if (scrollDirection === "up") {
+      TweenMax.staggerFromTo(".Nav li", 1, { y: "-200px" }, { y: "0" }, 0.1);
+    }
+  };
+  useEffect(() => {
+    window.addEventListener("scroll", scrollEvent);
+    return () => {
+      window.removeEventListener("scroll", scrollEvent);
+    };
+  }, []);
   return (
     <Router>
       <Fixed>
-        <StyledNav>
+        <PhotoWrapper>
+          <Photo />
+        </PhotoWrapper>
+        <StyledNav className="Nav">
           <Ul>
             <Li>
-              <Link to="/">HOME</Link>
+              <Link className="Home" to="/">
+                HOME
+              </Link>
             </Li>
             <Li>
-              <Link to="/feedback/">FEEDBACK</Link>
+              <Link className="Feedback" to="/feedback/">
+                DISCUSS
+              </Link>
             </Li>
             {isLogin ? (
               <h1>{username}</h1>
             ) : (
               <>
                 <Li>
-                  <Div onClick={onLogin}>Login</Div>
-                </Li>
-                <Li>
-                  <Div onClick={onRegiste}>Sign Up</Div>
+                  <Div className="Login" onClick={onLogin}>
+                    Log in
+                  </Div>
+                  <Div className="Signup" onClick={onRegiste}>
+                    Sign up
+                  </Div>
                 </Li>
               </>
             )}

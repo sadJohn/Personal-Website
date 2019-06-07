@@ -6,6 +6,9 @@ export const mouse = {
 const maxRadius = 25;
 const maxDistance = 10000;
 const minDistance = 25;
+const introColor = ["#424140", "#91D9CC", "#F2E63D", "#FF6161", "#00D2B4"];
+const projectsColor = ["#233027", "#7D6B7D", "#D6FFF1", "#FFF587", "#FF8C64"];
+const learnColor = ["#FF8A47", "#FC6170", "#8CEEEE", "#26BFBF", "#FFD747"];
 
 export class Circle {
   constructor(ctx, x, y, vx, vy, radius, circleColor) {
@@ -18,6 +21,9 @@ export class Circle {
     this.originRadius = radius;
     this.circleColor = circleColor;
     this.origincircleColor = circleColor;
+    this.introColor = introColor[Math.floor(Math.random() * 5)];
+    this.projectsColor = projectsColor[Math.floor(Math.random() * 5)];
+    this.learnColor = learnColor[Math.floor(Math.random() * 5)];
     this.v = 0.05;
   }
 
@@ -37,15 +43,33 @@ export class Circle {
       this.vx = -this.vx;
     }
     if (
+      this.y + this.radius > window.innerHeight * 4 ||
+      (this.y + this.radius > window.innerHeight * 3 - 0.5 &&
+        this.y - this.radius < window.innerHeight * 3 + 0.5) ||
+      (this.y + this.radius > window.innerHeight * 2 - 0.5 &&
+        this.y - this.radius < window.innerHeight * 2 + 0.5) ||
       (this.y + this.radius > window.innerHeight - 0.5 &&
         this.y - this.radius < window.innerHeight + 0.5) ||
-      this.y + this.radius > window.innerHeight * 2 ||
       this.y - this.radius < 0
     ) {
       this.vy = -this.vy;
     }
-    if (this.y < window.innerHeight * 2 && this.y > window.innerHeight + 0.5) {
-      this.circleColor = "rgb(50, 54, 57)";
+
+    if (
+      this.y < window.innerHeight * 4 &&
+      this.y > window.innerHeight * 3 + 0.5
+    ) {
+      this.circleColor = this.learnColor;
+    } else if (
+      this.y < window.innerHeight * 3 &&
+      this.y > window.innerHeight * 2 + 0.5
+    ) {
+      this.circleColor = this.projectsColor;
+    } else if (
+      this.y < window.innerHeight * 2 &&
+      this.y > window.innerHeight + 0.5
+    ) {
+      this.circleColor = this.introColor;
     } else {
       this.circleColor = this.origincircleColor;
     }
@@ -79,4 +103,3 @@ export class Circle {
     this.draw();
   }
 }
-

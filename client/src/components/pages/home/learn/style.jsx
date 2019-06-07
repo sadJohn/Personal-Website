@@ -4,12 +4,12 @@ import { Wrapper } from "../../../common/wrapper/style";
 export const Container = styled(Wrapper)`
   background: linear-gradient(
     to right,
-    rgb(50, 54, 57) 0%,
-    rgb(50, 54, 57) 33.3%,
-    #ffd747 33.3%,
-    #ffd747 66.6%,
-    rgb(50, 54, 57) 66.6%,
-    rgb(50, 54, 57) 100%
+    rgba(184, 208, 217, 0.2) 0%,
+    rgba(184, 208, 217, 0.2) 33.3%,
+    rgba(104, 142, 166, 0.2) 33.3%,
+    rgba(104, 142, 166, 0.2) 66.6%,
+    rgba(46, 73, 89, 0.2) 66.6%,
+    rgba(46, 73, 89, 0.2) 100%
   );
 `;
 
@@ -27,5 +27,5 @@ export const Title = styled.div`
   line-height: 10vh;
   font-size: 3rem;
   color: #00aaff;
-  font-family: 'Luckiest Guy', cursive;
+  font-family: "Luckiest Guy", cursive;
 `;
