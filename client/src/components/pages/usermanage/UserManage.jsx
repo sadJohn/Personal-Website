@@ -14,7 +14,7 @@ const UserManage = ({
 
   const { setIsLogin, setUser } = useContext(AuthContext);
   const login = async () => {
-    const response = await fetch("http://localhost:3999/api/users");
+    const response = await fetch("/api/users");
     const users = await response.json();
     const userIndex = users.findIndex(user => user.username === username);
 
@@ -31,14 +31,14 @@ const UserManage = ({
     }
   };
   const registe = async () => {
-    const response = await fetch("http://localhost:3999/api/users");
+    const response = await fetch("/api/users");
     const users = await response.json();
     if (users.find(user => user.username === username)) {
       alert("already registe");
     } else {
       const data = { username, pwd };
 
-      const response = await fetch("http://localhost:3999/api/users", {
+      const response = await fetch("/api/users", {
         method: "POST",
         body: JSON.stringify(data),
         headers: new Headers({

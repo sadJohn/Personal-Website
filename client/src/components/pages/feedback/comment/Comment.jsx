@@ -24,7 +24,7 @@ const Comment = () => {
   const { isLogin, username } = useContext(AuthContext);
 
   const fatchComments = async () => {
-    const response = await fetch("http://localhost:3999/api/comments");
+    const response = await fetch("/api/comments");
     const comments = await response.json();
     setComments(comments);
   };
@@ -42,7 +42,7 @@ const Comment = () => {
     const data = { username, message: comment };
     console.log("data", data);
 
-    const response = await fetch("http://localhost:3999/api/comments", {
+    const response = await fetch("/api/comments", {
       method: "POST",
       body: JSON.stringify(data),
       headers: new Headers({
