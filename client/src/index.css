@@ -40,6 +40,6 @@ q:before, q:after {
 html {
   font-size: 10px;
 }
-/* body::-webkit-scrollbar {
+body::-webkit-scrollbar {
   width: 0;
-} */
+}
