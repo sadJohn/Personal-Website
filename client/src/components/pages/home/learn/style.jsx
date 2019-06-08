@@ -26,6 +26,7 @@ export const Title = styled.div`
   text-align: center;
   line-height: 10vh;
   font-size: 3rem;
-  color: #00aaff;
+  color: #FFC300;
+  text-shadow: 0px 0px 2px rgba(255,255,255,0.7); 
   font-family: "Luckiest Guy", cursive;
 `;

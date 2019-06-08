@@ -17,6 +17,7 @@ export const Title = styled.div`
   line-height: 4rem;
   font-size: 4rem;
   color: #ffd747;
+  text-shadow: 0px 0px 1px rgba(255,255,255,0.7); 
   font-family: "Indie Flower", cursive;
 `;
 

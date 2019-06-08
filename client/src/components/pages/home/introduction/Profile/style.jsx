@@ -19,10 +19,13 @@ export const StyledPhoto = styled.div`
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26), 0 2px 10px 0 rgba(0, 0, 0, 0.22);
 `;
 
-export const StyledName = styled.div`
+export const Name = styled.div`
   width: 10em;
-  height: 5em;
-  font-size: 2em;
+  height: 3em;
+  font-size: 3.5em;
   text-align: center;
-  line-height: 5em;
+  line-height: 3em;
+  color: #F7FFEB;
+  text-shadow: 0px 0px 6px rgba(0,0,0,0.7); 
+  font-family: "Indie Flower", cursive;
 `;

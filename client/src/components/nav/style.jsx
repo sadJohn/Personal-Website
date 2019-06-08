@@ -52,7 +52,8 @@ export const Link = styled(a)`
   height: 60px;
   text-align: center;
   line-height: 60px;
-  color: #6955a1;
+  color: #ffffff;
+  text-shadow: 0px 0px 3px rgba(0,0,0,0.7); 
   text-decoration: none;
   display: inline-block;
   border-radius: 50%;
@@ -71,7 +72,8 @@ export const Div = styled.div`
   height: 50px;
   text-align: center;
   line-height: 50px;
-  color: #6955a1;
+  color: #ffffff;
+  text-shadow: 0px 0px 3px rgba(0,0,0,0.7);  
   cursor: pointer;
   display: inline-block;
   border-radius: 50%;

@@ -1,11 +1,11 @@
 import React from "react";
-import { StyledProfile, StyledPhoto, StyledName } from "./style";
+import { StyledProfile, StyledPhoto, Name } from "./style";
 
 const Profile = React.memo(() => {
   return (
     <StyledProfile>
       <StyledPhoto />
-      <StyledName>Johan</StyledName>
+      <Name>Johan</Name>
     </StyledProfile>
   );
 });
