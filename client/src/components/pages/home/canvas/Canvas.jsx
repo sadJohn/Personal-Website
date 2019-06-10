@@ -2,6 +2,7 @@ import React, { useRef, useEffect } from "react";
 import { StyledBgCanvas } from "./style";
 import { Circle, mouse } from "./Circle";
 
+
 const Canvas = React.memo(() => {
   const canvasRef = useRef(null);
 

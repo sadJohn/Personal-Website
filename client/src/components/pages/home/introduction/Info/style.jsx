@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 export const StyledInfo = styled.div`
   width: 35%;
-  height: 70vh;
+  height: 70%;
   padding-left: 1em;
   position: relative;
 `;

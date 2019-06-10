@@ -24,6 +24,7 @@ export const Photo = styled(StyledPhoto)`
   width: 50px;
   height: 50px;
   background-size: 50px;
+  cursor: pointer;
 `;
 
 export const StyledNav = styled.nav`
@@ -53,7 +54,7 @@ export const Link = styled(a)`
   text-align: center;
   line-height: 60px;
   color: #ffffff;
-  text-shadow: 0px 0px 3px rgba(0,0,0,0.7); 
+  text-shadow: 0px 0px 3px rgba(0, 0, 0, 0.7);
   text-decoration: none;
   display: inline-block;
   border-radius: 50%;
@@ -73,7 +74,7 @@ export const Div = styled.div`
   text-align: center;
   line-height: 50px;
   color: #ffffff;
-  text-shadow: 0px 0px 3px rgba(0,0,0,0.7);  
+  text-shadow: 0px 0px 3px rgba(0, 0, 0, 0.7);
   cursor: pointer;
   display: inline-block;
   border-radius: 50%;
@@ -86,4 +87,12 @@ export const Div = styled.div`
   &.Signup {
     background-color: #7be19a;
   }
+`;
+
+export const User = styled.p`
+  font-size: 2.5rem;
+  font-weight: bold;
+  font-family: "Indie Flower", cursive;
+  color: #424140;
+  text-shadow: 0px 0px 10px rgba(255,255,255,0.7);
 `;

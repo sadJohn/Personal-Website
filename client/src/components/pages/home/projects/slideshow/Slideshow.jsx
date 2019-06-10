@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { TweenMax } from "gsap";
 import projects from "./projects";
-import { Container, Slide, SlideshowBtn } from "./style";
+import { Container, SlideWrapper, Slide, SlideshowBtn } from "./style";
 
 const Slideshow = React.memo(() => {
   const [slideshow, setSlideshow] = useState(projects);
@@ -32,9 +32,9 @@ const Slideshow = React.memo(() => {
         <i className="fas fa-angle-left" />
       </SlideshowBtn>
       {slideshow.map(slide => (
-        <div key={slide.id} className="img-link">
+        <SlideWrapper key={slide.id} className="img-link">
           <Slide {...slide} />
-        </div>
+        </SlideWrapper>
       ))}
       <SlideshowBtn onClick={forward}>
         <i className="fas fa-angle-right" />

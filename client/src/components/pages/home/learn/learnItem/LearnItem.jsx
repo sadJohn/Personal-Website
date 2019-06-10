@@ -8,7 +8,7 @@ const LearnItem = React.memo(({ id, href, src, alt, phase, onClick }) => {
       ((window.innerWidth - 300) / 3) * Math.random() +
       phase * ((window.innerWidth - 300) / 3) +
       phase * 100,
-    y: Math.random() * (window.innerHeight * 0.8 - 100) - 60
+    y: Math.random() * (window.innerHeight - 100) - 80
   });
 
   useEffect(() => {
@@ -17,7 +17,7 @@ const LearnItem = React.memo(({ id, href, src, alt, phase, onClick }) => {
         ((window.innerWidth - 300) / 3) * Math.random() +
         phase * ((window.innerWidth - 300) / 3) +
         phase * 100,
-      y: Math.random() * (window.innerHeight * 0.8 - 100) - 60
+      y: Math.random() * (window.innerHeight - 100) - 80
     });
   }, [phase]);
 
@@ -41,8 +41,8 @@ const LearnItem = React.memo(({ id, href, src, alt, phase, onClick }) => {
           dx = -dx;
         }
         if (
-          prevPosition.y > window.innerHeight * 0.8 - 160 ||
-          prevPosition.y < -60
+          prevPosition.y > window.innerHeight * 0.9 - 180 ||
+          prevPosition.y < -80
         ) {
           dy = -dy;
         }

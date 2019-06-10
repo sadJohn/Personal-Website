@@ -8,7 +8,8 @@ import {
   Fixed,
   Div,
   Photo,
-  PhotoWrapper
+  PhotoWrapper,
+  User
 } from "./style";
 import Feedback from "./../pages/feedback/Feedback";
 import Home from "./../pages/home/Home";
@@ -42,11 +43,15 @@ const Nav = ({ onLogin, onRegiste }) => {
       window.removeEventListener("scroll", scrollEvent);
     };
   }, []);
+
+  const toTop = () => {
+    window.scrollTo(0, 0);
+  };
   return (
     <Router>
       <Fixed>
         <PhotoWrapper>
-          <Photo />
+          <Photo onClick={toTop} />
         </PhotoWrapper>
         <StyledNav className="Nav">
           <Ul>
@@ -61,7 +66,7 @@ const Nav = ({ onLogin, onRegiste }) => {
               </Link>
             </Li>
             {isLogin ? (
-              <h1>{username}</h1>
+              <User>{username}</User>
             ) : (
               <>
                 <Li>

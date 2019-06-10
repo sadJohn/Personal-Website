@@ -43,3 +43,7 @@ html {
 body::-webkit-scrollbar {
   width: 0;
 }
+body {
+	min-width: 1000px;
+}
+

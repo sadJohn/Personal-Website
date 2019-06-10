@@ -7,16 +7,22 @@ export const StyledProfile = styled.div`
   justify-content: center;
   align-items: center;
   width: 40%;
-  height: 50vh;
+  height: 50%;
 `;
 
 export const StyledPhoto = styled.div`
-  width: 10em;
-  height: 10em;
+  width: 25%;
   background: url(${photo}) no-repeat;
-  background-size: 10em;
+  background-size: cover;
   border-radius: 50%;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26), 0 2px 10px 0 rgba(0, 0, 0, 0.22);
+
+  &:before {
+    content: "";
+    display: inline-block;
+    width: 0.1px;
+    padding-top: 100%;
+  }
 `;
 
 export const Name = styled.div`

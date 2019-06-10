@@ -2,8 +2,8 @@ import styled from "styled-components";
 
 export const Link = styled.a`
   display: block;
-  width: 200px;
-  height: 200px;
+  width: 100%;
+  /* height: 20rem; */
   border-radius: 50%;
   position: relative;
   overflow: hidden;

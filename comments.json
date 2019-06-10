@@ -1,1 +1,58 @@
-[{"username":"Johan","message":"Cool!!!"},{"username":"Johan","message":"That's awsome!"}]
+[
+  {
+    "username": "Johan",
+    "message": "Cool!!!",
+    "voteup": 2,
+    "votedown": 0,
+    "route": [0],
+    "reply": [
+      {
+        "username": "Johan",
+        "message": "Cool!!!",
+        "voteup": 2,
+        "votedown": 0,
+        "route": [0, 0],
+        "reply": []
+      }
+    ]
+  },
+  {
+    "username": "Johan",
+    "message": "That's awsome!",
+    "voteup": 2,
+    "votedown": 0,
+    "route": [1],
+    "reply": [
+      {
+        "username": "Johan",
+        "message": "Cool!!!",
+        "voteup": 2,
+        "votedown": 0,
+        "route": [1, 0],
+        "reply": [
+          {
+            "username": "Johan",
+            "message": "Cool!!!",
+            "voteup": 2,
+            "votedown": 0,
+            "route": [1, 0, 0],
+            "reply": [
+              {
+                "username": "Johan",
+                "message": "Hello",
+                "route": [1, 0, 0, 0],
+                "reply": []
+              }
+            ]
+          },
+          {
+            "username": "Johan",
+            "message": "OhOHOHOH",
+            "route": [1, 0, 1],
+            "reply": []
+          }
+        ]
+      }
+    ]
+  }
+]

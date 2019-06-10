@@ -1,13 +1,9 @@
-import React, { useState, useEffect, useContext } from "react";
-import AuthContext from "./../../../../context/AuthContext";
+import React, { useState, useEffect } from "react";
 import {
   Wrapper,
   Container,
-  Photo,
-  Img,
-  Input,
-  Button,
-  Editor,
+  CommentEditor,
+  ReplyEditor,
   CommentsUl,
   Li,
   Username,
@@ -16,12 +12,11 @@ import {
   Reply,
   Vote
 } from "./style";
+import { Photo, Img } from "./editor/style";
 import photo from "../../../../assets/images/photo.jpg";
 
 const Comment = () => {
-  const [comment, setComment] = useState("");
   const [comments, setComments] = useState([]);
-  const { isLogin, username } = useContext(AuthContext);
 
   const fatchComments = async () => {
     const response = await fetch("/api/comments");
@@ -32,60 +27,59 @@ const Comment = () => {
     fatchComments();
   }, []);
 
-  const onCommentChange = e => {
-    setComment(e.target.value);
+  const showEditor = e => {
+    e.target.nextElementSibling.style.display = "block";
+  };
+  const canelComment = e => {
+    e.target.parentElement.parentElement.style.display = "none";
   };
 
-  const onComment = async () => {
-    if (!isLogin) return alert("Login first");
-
-    const data = { username, message: comment };
-    console.log("data", data);
-
-    const response = await fetch("/api/comments", {
-      method: "POST",
-      body: JSON.stringify(data),
-      headers: new Headers({
-        "Content-Type": "application/json"
-      })
-    });
-    const result = await response.json();
-    alert(result.status);
-    fatchComments();
-    setComment("");
+  const displayComments = comments => {
+    if (comments.length === 0) {
+      return;
+    } else {
+      return comments.map((comment, index) => {
+        return (
+          <Li>
+            <Photo>
+              <Img src={photo} alt="user" />
+            </Photo>
+            <Username>{comment.username}</Username>
+            <Message>{comment.message}</Message>
+            <Options>
+              <Vote>
+                <i class="fas fa-chevron-up" />
+              </Vote>
+              <Vote>
+                <i class="fas fa-chevron-down" />
+              </Vote>
+              <Reply onClick={showEditor} >Reply</Reply>
+              <ReplyEditor
+                fatchComments={fatchComments}
+                onCancel={canelComment}
+                route={comment.route}
+              >
+                Reply
+              </ReplyEditor>
+              <CommentsUl>{displayComments(comment.reply)}</CommentsUl>
+            </Options>
+          </Li>
+        );
+      });
+    }
   };
 
   return (
     <Wrapper>
       <Container>
-        <Editor>
-          <Photo>
-            <Img src={photo} alt="user" />
-          </Photo>
-          <Input type="text" value={comment} onChange={onCommentChange} />
-          <Button onClick={onComment}>Comment</Button>
-        </Editor>
-
-        <CommentsUl>
-          {comments.map(comment => (
-            <Li>
-              <Photo>
-                <Img src={photo} alt="user" />
-              </Photo>
-              <Username>{comment.username}</Username>
-              <Message>{comment.message}</Message>
-              <Options>
-                <Vote>
-                  <i class="fas fa-chevron-up" />
-                </Vote>
-                <Vote>
-                  <i class="fas fa-chevron-down" />
-                </Vote>
-                <Reply>Reply</Reply>
-              </Options>
-            </Li>
-          ))}
-        </CommentsUl>
+        <CommentEditor
+          fatchComments={fatchComments}
+          onCancel={canelComment}
+          commentBtn
+        >
+          Comment
+        </CommentEditor>
+        <CommentsUl>{displayComments(comments)}</CommentsUl>
       </Container>
     </Wrapper>
   );

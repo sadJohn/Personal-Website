@@ -38,6 +38,7 @@ export const Like = styled.div`
     top: 0;
     left: 3px;
     transition: all 0.2s cubic-bezier(0.63, 0.04, 0.59, 1.67);
+    user-select: none;
   }
 
   :hover img {
@@ -46,6 +47,20 @@ export const Like = styled.div`
     height: 40px;
     top: -40px;
     left: -12px;
-    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26), 0 2px 10px 0 rgba(0, 0, 0, 0.22);
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26),
+      0 2px 10px 0 rgba(0, 0, 0, 0.22);
   }
+
+  & i {
+    color: #0583F2;
+  }
+
+  :active i {
+    color: #e91e63;
+  }
+`;
+
+export const Count = styled.div`
+  position: absolute;
+  left: 25px;
 `;

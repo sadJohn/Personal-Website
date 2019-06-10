@@ -7,7 +7,7 @@ export const Container = styled(Wrapper)`
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  padding: 5em 15em;
+  padding: 5rem 10%;
 `;
 
 export const Title = styled.div`
