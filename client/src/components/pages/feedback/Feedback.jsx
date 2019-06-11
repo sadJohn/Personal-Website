@@ -10,6 +10,9 @@ const Feedback = () => {
   const [dislikeCount, setDislikeCount] = useState(0);
   const { isLogin, username } = useContext(AuthContext);
 
+
+  
+
   const fatchCount = async () => {
     const response = await fetch("/api/counts");
     const { likeCount, dislikeCount } = await response.json();
@@ -19,6 +22,8 @@ const Feedback = () => {
   useEffect(() => {
     fatchCount();
   }, []);
+
+  
 
   const countSubmit = async e => {
     if (!isLogin) return alert("Login first");

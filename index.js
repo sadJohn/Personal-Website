@@ -80,6 +80,46 @@ app.post("/api/counts", (req, res) => {
   });
 });
 
+app.get("/api/vote", (req, res) => {
+  fs.readFile("counts.json", (err, data) => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.send(JSON.parse(data.toString()));
+    }
+  });
+});
+
+function vote(length, comments, route, type, username) {
+  if (length === route.length) {
+    comments.voteCount[type].counts += 1;
+    comments.voteCount[type].users.push(username);
+  } else {
+    console.log(typeof route);
+    if (length === route.length - 1)
+      vote(length + 1, comments[route[length]], route, type, username);
+    else vote(length + 1, comments[route[length]].reply, route, type, username);
+  }
+}
+
+app.post("/api/vote", (req, res) => {
+  const route = req.body.route;
+  const type = req.body.type;
+  const username = req.body.username;
+  fs.readFile("comments.json", (err, data) => {
+    if (err) {
+      console.log(err);
+    } else {
+      const comments = JSON.parse(data.toString());
+      vote(0, comments, route, type, username);
+      fs.writeFile("comments.json", JSON.stringify(comments), err => {
+        console.log(err);
+      });
+      res.send({ status: "success" });
+    }
+  });
+});
+
 app.get("/api/comments", (req, res) => {
   fs.readFile("comments.json", (err, data) => {
     if (err) {
@@ -94,7 +134,6 @@ function pushReply(length, comments, route, comment) {
   if (length === route.length) {
     route.push(comments.length);
     comment.route = route;
-    comment.reply = [];
     comments.push(comment);
   } else {
     pushReply(length + 1, comments[route[length]].reply, route, comment);
@@ -104,7 +143,12 @@ function pushReply(length, comments, route, comment) {
 app.post("/api/comments", (req, res) => {
   const comment = {
     username: req.body.username,
-    message: req.body.message
+    message: req.body.message,
+    reply: [],
+    voteCount: {
+      voteup: { counts: 0, users: [] },
+      votedown: { counts: 0, users: [] }
+    }
   };
   const route = req.body.route;
   fs.readFile("comments.json", (err, data) => {
@@ -113,6 +157,7 @@ app.post("/api/comments", (req, res) => {
     } else {
       const comments = JSON.parse(data.toString());
       if (route === undefined) {
+        comment.route = [comments.length];
         comments.push(comment);
       } else {
         pushReply(0, comments, route, comment);

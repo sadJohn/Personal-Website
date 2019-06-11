@@ -58,6 +58,12 @@ export const Vote = styled.div`
   display: inline-block;
   margin: 5px 10px;
   cursor: pointer;
+  position: relative;
+`;
+
+export const VoteCount = styled.div`
+  position: absolute;
+  left: 20px;
 `;
 
 export const Reply = styled.div`
