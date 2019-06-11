@@ -11,50 +11,43 @@ const learnList = [
     id: 0,
     href: "https://reactjs.org/",
     src: react,
-    alt: "React.js",
-    phase: 0
+    alt: "React.js"
   },
   {
     id: 1,
     href: "https://javascript.info/",
     src: javascript,
-    alt: "Javascript",
-    phase: 0
+    alt: "Javascript"
   },
   {
     id: 2,
     href: "https://nodejs.org/en/",
     src: node,
-    alt: "Node.js",
-    phase: 1
+    alt: "Node.js"
   },
   {
     id: 3,
     href: "https://graphql.cn/",
     src: graphql,
-    alt: "GraphQL",
-    phase: 2
+    alt: "GraphQL"
   },
   {
     id: 4,
     href: "https://www.typescriptlang.org/",
     src: typescript,
-    alt: "TypeScript",
-    phase: 1
+    alt: "TypeScript"
   },
   {
     id: 5,
     href: "https://webpack.js.org/",
     src: webpack,
-    alt: "webpack",
-    phase: 2
+    alt: "webpack"
   },
   {
     id: 6,
     href: "https://threejs.org/",
     src: three,
-    alt: "Three.js",
-    phase: 1
+    alt: "Three.js"
   },
 ]
 

@@ -8,7 +8,7 @@ const Info = React.memo(() => {
       <Img src={rowlet} />
       <Title>About me</Title>
       <P>
-        Hey! I'm Johan, a collage student based in HangZhou, China. I have a
+        Hey! I'm Johan, a college student based in HangZhou, China. I have a
         passion for web developement and love to create for web.
       </P>
       <Title>Hobbies</Title>

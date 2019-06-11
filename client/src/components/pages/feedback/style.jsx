@@ -2,23 +2,36 @@ import styled from "styled-components";
 
 export const Wrapper = styled.div`
   width: 100%;
-  background-color: #dcf2de;
+  background-color: #424140;
   padding-top: 100px;
+
+  & div.paticlesWrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
 `;
 
 export const Summary = styled.article`
   width: 800px;
   margin: 0 auto;
   padding: 50px 30px 50px 15px;
+  color: white;
   font-size: 1.6rem;
   line-height: 1.7;
   font-family: "Open Sans", sans-serif;
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(255, 255, 255, 0.05);
   border-radius: 10px;
-  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26), 0 2px 10px 0 rgba(0, 0, 0, 0.22);
+  text-shadow: 0px 0px 6px rgba(0, 0, 0, 0.7);
+  
 
   & p {
     margin-top: 2rem;
+  }
+  & a {
+    color: #0583F2
   }
 `;
 

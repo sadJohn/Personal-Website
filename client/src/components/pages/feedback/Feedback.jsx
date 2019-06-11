@@ -4,14 +4,12 @@ import { Wrapper, Summary, Like, Count } from "./style";
 import like from "../../../assets/images/like.jpeg";
 import dislike from "../../../assets/images/dislike.jpg";
 import AuthContext from "../../../context/AuthContext";
+import Particles from "react-particles-js";
 
 const Feedback = () => {
   const [likeCount, setLikeCount] = useState(0);
   const [dislikeCount, setDislikeCount] = useState(0);
   const { isLogin, username } = useContext(AuthContext);
-
-
-  
 
   const fatchCount = async () => {
     const response = await fetch("/api/counts");
@@ -23,8 +21,6 @@ const Feedback = () => {
     fatchCount();
   }, []);
 
-  
-
   const countSubmit = async e => {
     if (!isLogin) return alert("Login first");
     const type = e.currentTarget.dataset.type;
@@ -32,10 +28,8 @@ const Feedback = () => {
     const response = await fetch("/api/counts");
     const counts = await response.json();
     if (
-      counts[type].users.findIndex(user => user === username) !==
-        -1 ||
-      counts[otherType].users.findIndex(user => user === username) !==
-        -1
+      counts[type].users.findIndex(user => user === username) !== -1 ||
+      counts[otherType].users.findIndex(user => user === username) !== -1
     )
       return;
 
@@ -57,6 +51,36 @@ const Feedback = () => {
   };
   return (
     <Wrapper>
+      <Particles
+        className="paticlesWrapper"
+        width="100%"
+        height="100%"
+        params={{
+          particles: {
+            number: {
+              value: 100
+            }
+          },
+          interactivity: {
+            detect_on: "window",
+            events: {
+              onhover: {
+                enable: true,
+                mode: "grab"
+              },
+              resize: true
+            },
+            modes: {
+              grab: {
+                distance: 200,
+                line_linked: {
+                  opacity: 1
+                }
+              }
+            }
+          }
+        }}
+      />
       <Summary>
         <h1>Need Feedback</h1>
         <p>
@@ -65,7 +89,7 @@ const Feedback = () => {
         </p>
         <p>
           I started designing this website in May of 2019. Why did I decide to
-          make this website? Ok, you know I'm a collage student. Actually this
+          make this website? Ok, you know I'm a college student. Actually this
           is one of my final assignment in my frontend course. I have never done
           a complete project since I started learning frontend development, so
           this is my first time making a complete and kind of complicated
@@ -73,6 +97,7 @@ const Feedback = () => {
           it, and I have acquired a lot of valuable experience during this
           period. This is definitely the most important purpose.
         </p>
+
         <p>
           To make this website, I used some popular technologies. I used React
           to build UI, GSAP to create animation, and Express to build a server.
@@ -81,12 +106,12 @@ const Feedback = () => {
           How do you like my page?{" "}
           <Like onClick={countSubmit} data-type="likeCount">
             <Count>{likeCount}</Count>
-            <i className="fas fa-thumbs-up"></i>
+            <i className="fas fa-thumbs-up" />
             <img src={like} alt="like" />
           </Like>
           <Like onClick={countSubmit} data-type="dislikeCount">
             <Count>{dislikeCount}</Count>
-            <i className="fas fa-thumbs-down"></i>
+            <i className="fas fa-thumbs-down" />
             <img src={dislike} alt="dislike" />
           </Like>
         </p>

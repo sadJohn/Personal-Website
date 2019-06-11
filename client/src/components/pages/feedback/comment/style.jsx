@@ -3,10 +3,11 @@ import Editor from './editor/Editor';
 
 export const Wrapper = styled.div`
   width: 800px;
-  margin: 10px auto;
-  background-color: #f0f0f0;
+  margin: 10px auto 0 auto;
+  background-color: rgba(240, 240, 240, 0.8);
   font-family: 'Open Sans', sans-serif;
   border-radius: 10px;
+  text-shadow: 0px 0px 1px rgba(0, 0, 0, 0.5);
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26), 0 2px 10px 0 rgba(0, 0, 0, 0.22);
 `;
 
@@ -44,6 +45,7 @@ export const Li = styled.li`
 export const Username = styled.div`
   margin-left: 70px;
   margin-bottom: 1rem;
+  font-weight: bold;
 `;
 
 export const Message = styled.div`

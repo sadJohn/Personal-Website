@@ -4,7 +4,7 @@ const path = require("path");
 
 const app = express();
 
-// Serve static files from the React frontend app
+
 app.use(express.static(path.join(__dirname, "client/build")));
 
 app.use(express.json());
@@ -43,6 +43,34 @@ app.post("/api/users", (req, res) => {
       const users = JSON.parse(data.toString());
       users.push(user);
       fs.writeFile("users.json", JSON.stringify(users), err => {
+        console.log(err);
+      });
+      res.send({ status: "success" });
+    }
+  });
+});
+
+app.get("/api/learnPhase", (req, res) => {
+  fs.readFile("learnPhase.json", (err, data) => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.send(JSON.parse(data.toString()));
+    }
+  });
+});
+
+app.post("/api/learnPhase", (req, res) => {
+    const id= req.body.id
+    const phase =req.body.phase
+  fs.readFile("learnPhase.json", (err, data) => {
+    if (err) {
+      console.log(err);
+    } else {
+      const learnPhase = JSON.parse(data.toString());
+      const index = learnPhase.findIndex(item => item.id === id)
+      learnPhase[index].phase = phase
+      fs.writeFile("learnPhase.json", JSON.stringify(learnPhase), err => {
         console.log(err);
       });
       res.send({ status: "success" });
@@ -171,7 +199,7 @@ app.post("/api/comments", (req, res) => {
   });
 });
 
-// Anything that doesn't match the above, send back index.html
+
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname + "/client/build/index.html"));
 });

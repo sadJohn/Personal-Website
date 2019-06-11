@@ -1,19 +1,44 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import learnList from "./learnList";
 import { Container, Category, Title } from "./style";
 import LearnItem from "./learnItem/LearnItem";
-import { TweenMax } from "gsap";
 
 const Learn = React.memo(() => {
   const [list, setList] = useState(learnList);
 
-  const moveHandler = (e) => {
+  
+  useEffect(() => {
+    const fatchLearnPhase = async () => {
+      const response = await fetch('/api/learnPhase')
+      const learnPhase = await response.json()
+      const newList = list.map(learnItem => {
+        const phase = learnPhase.find(item => item.id === learnItem.id);
+        return { ...learnItem, ...phase };
+      });
+      setList(newList)
+    }
+    fatchLearnPhase()
+  }, [list])
+
+  const moveHandler = async e => {
     const newList = [...list];
     const targetIndex = learnList.findIndex(
       learnListItem => learnListItem.id === +e.target.dataset.id
     );
-    newList[targetIndex].phase = +e.target.dataset.value;
-    setList(newList)
+    const id = newList[targetIndex].id
+    const phase = +e.target.dataset.value;
+    const data = { id, phase };
+
+    const state = await fetch("/api/learnPhase", {
+      method: "POST",
+      body: JSON.stringify(data),
+      headers: new Headers({
+        "Content-Type": "application/json"
+      })
+    });
+    const result = await state.json();
+    alert(result.status);
+    setList(newList);
   };
   return (
     <Container>
