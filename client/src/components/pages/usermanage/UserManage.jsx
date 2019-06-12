@@ -13,6 +13,7 @@ const UserManage = ({
   const [pwd, setPwd] = useState("");
 
   const { setIsLogin, setUser } = useContext(AuthContext);
+  
   const login = async () => {
     const response = await fetch("/api/users");
     const users = await response.json();

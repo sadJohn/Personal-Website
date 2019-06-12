@@ -59,7 +59,17 @@ const Feedback = () => {
           particles: {
             number: {
               value: 100
-            }
+            },
+            color: {
+              value: "#000"
+            },
+            line_linked: {
+              enable: true,
+              distance: 200,
+              color: "#000",
+              opacity: 0.4,
+              width: 0.5
+            },
           },
           interactivity: {
             detect_on: "window",
