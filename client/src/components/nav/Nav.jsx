@@ -19,7 +19,8 @@ import { TweenMax } from "gsap";
 let scrollAction = window.pageYOffset;
 let scrollDirection;
 
-const Nav = ({ onLogin, onRegiste }) => {
+const Nav = React.memo(({ onLogin, onRegiste }) => {
+  console.log('Nav rendering...')
   const { isLogin, username } = useContext(AuthContext);
 
   const scrollEvent = () => {
@@ -87,6 +88,6 @@ const Nav = ({ onLogin, onRegiste }) => {
       <Route path="/feedback/" component={Feedback} />
     </Router>
   );
-};
+});
 
 export default Nav;

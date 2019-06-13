@@ -6,48 +6,56 @@ import dislike from "../../../assets/images/dislike.jpg";
 import AuthContext from "../../../context/AuthContext";
 import Particles from "react-particles-js";
 
-const Feedback = () => {
+const Feedback = React.memo(() => {
   const [likeCount, setLikeCount] = useState(0);
   const [dislikeCount, setDislikeCount] = useState(0);
   const { isLogin, username } = useContext(AuthContext);
 
   const fatchCount = async () => {
-    const response = await fetch("/api/counts");
-    const { likeCount, dislikeCount } = await response.json();
-    setLikeCount(likeCount.counts);
-    setDislikeCount(dislikeCount.counts);
+    try {
+      const response = await fetch("/api/counts");
+      const { likeCount, dislikeCount } = await response.json();
+      setLikeCount(likeCount.counts);
+      setDislikeCount(dislikeCount.counts);
+    } catch (e) {
+      console.log(e);
+    }
   };
   useEffect(() => {
     fatchCount();
   }, []);
 
   const countSubmit = async e => {
-    if (!isLogin) return alert("Login first");
-    const type = e.currentTarget.dataset.type;
-    const otherType = type === "likeCount" ? "dislikeCount" : "likeCount";
-    const response = await fetch("/api/counts");
-    const counts = await response.json();
-    if (
-      counts[type].users.findIndex(user => user === username) !== -1 ||
-      counts[otherType].users.findIndex(user => user === username) !== -1
-    )
-      return;
+    try {
+      if (!isLogin) return alert("Login first");
+      const type = e.currentTarget.dataset.type;
+      const otherType = type === "likeCount" ? "dislikeCount" : "likeCount";
+      const response = await fetch("/api/counts");
+      const counts = await response.json();
+      if (
+        counts[type].users.findIndex(user => user === username) !== -1 ||
+        counts[otherType].users.findIndex(user => user === username) !== -1
+      )
+        return;
 
-    const count = 1;
-    const data = { count, username, type };
+      const count = 1;
+      const data = { count, username, type };
 
-    const state = await fetch("/api/counts", {
-      method: "POST",
-      body: JSON.stringify(data),
-      headers: new Headers({
-        "Content-Type": "application/json"
-      })
-    });
-    const result = await state.json();
-    alert(result.status);
-    type === "likeCount"
-      ? setLikeCount(likeCount + 1)
-      : setDislikeCount(dislikeCount + 1);
+      const state = await fetch("/api/counts", {
+        method: "POST",
+        body: JSON.stringify(data),
+        headers: new Headers({
+          "Content-Type": "application/json"
+        })
+      });
+      const result = await state.json();
+      console.log(result.status);
+      type === "likeCount"
+        ? setLikeCount(likeCount + 1)
+        : setDislikeCount(dislikeCount + 1);
+    } catch (e) {
+      console.log(e);
+    }
   };
   return (
     <Wrapper>
@@ -69,7 +77,7 @@ const Feedback = () => {
               color: "#000",
               opacity: 0.4,
               width: 0.5
-            },
+            }
           },
           interactivity: {
             detect_on: "window",
@@ -134,6 +142,6 @@ const Feedback = () => {
       <Comment />
     </Wrapper>
   );
-};
+});
 
 export default Feedback;

@@ -46,9 +46,16 @@ export const Button = styled.button`
   background-color: #009a61;
   cursor: pointer;
   color: white;
-  
+
   :hover {
     background-color: #017e66;
-
   }
+`;
+
+export const Invalid = styled.div`
+  font-size: 1.5rem;
+  color: red;
+  width: 300px;
+  height: 30px;
+  line-height: 30px;
 `;

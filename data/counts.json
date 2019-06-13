@@ -1,0 +1,4 @@
+{
+  "likeCount": { "counts": 2, "users": ["Johan", "sadJohn"] },
+  "dislikeCount": { "counts": 1, "users": ["nina"] }
+}

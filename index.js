@@ -4,7 +4,6 @@ const path = require("path");
 
 const app = express();
 
-
 app.use(express.static(path.join(__dirname, "client/build")));
 
 app.use(express.json());
@@ -22,9 +21,9 @@ app.all("*", function(req, res, next) {
 });
 
 app.get("/api/users", (req, res) => {
-  fs.readFile("users.json", (err, data) => {
+  fs.readFile("data/users.json", (err, data) => {
     if (err) {
-      console.log(err);
+      res.send(err);
     } else {
       res.send(JSON.parse(data.toString()));
     }
@@ -36,24 +35,25 @@ app.post("/api/users", (req, res) => {
     username: req.body.username,
     pwd: req.body.pwd
   };
-  fs.readFile("users.json", (err, data) => {
+
+  fs.readFile("data/users.json", (err, data) => {
     if (err) {
-      console.log(err);
+      res.send({ status: "Failed" });
     } else {
       const users = JSON.parse(data.toString());
       users.push(user);
-      fs.writeFile("users.json", JSON.stringify(users), err => {
+      fs.writeFile("data/users.json", JSON.stringify(users), err => {
         console.log(err);
       });
-      res.send({ status: "success" });
+      res.send({ status: "Succeed" });
     }
   });
 });
 
 app.get("/api/learnPhase", (req, res) => {
-  fs.readFile("learnPhase.json", (err, data) => {
+  fs.readFile("data/learnPhase.json", (err, data) => {
     if (err) {
-      console.log(err);
+      res.send(err);
     } else {
       res.send(JSON.parse(data.toString()));
     }
@@ -61,16 +61,16 @@ app.get("/api/learnPhase", (req, res) => {
 });
 
 app.post("/api/learnPhase", (req, res) => {
-    const id= req.body.id
-    const phase =req.body.phase
-  fs.readFile("learnPhase.json", (err, data) => {
+  const id = req.body.id;
+  const phase = req.body.phase;
+  fs.readFile("data/learnPhase.json", (err, data) => {
     if (err) {
-      console.log(err);
+      res.send(err);
     } else {
       const learnPhase = JSON.parse(data.toString());
-      const index = learnPhase.findIndex(item => item.id === id)
-      learnPhase[index].phase = phase
-      fs.writeFile("learnPhase.json", JSON.stringify(learnPhase), err => {
+      const index = learnPhase.findIndex(item => item.id === id);
+      learnPhase[index].phase = phase;
+      fs.writeFile("data/learnPhase.json", JSON.stringify(learnPhase), err => {
         console.log(err);
       });
       res.send({ status: "success" });
@@ -79,9 +79,9 @@ app.post("/api/learnPhase", (req, res) => {
 });
 
 app.get("/api/counts", (req, res) => {
-  fs.readFile("counts.json", (err, data) => {
+  fs.readFile("data/counts.json", (err, data) => {
     if (err) {
-      console.log(err);
+      res.send(err);
     } else {
       res.send(JSON.parse(data.toString()));
     }
@@ -93,14 +93,14 @@ app.post("/api/counts", (req, res) => {
   const username = req.body.username;
   const type = req.body.type;
   console.log(count, username, type);
-  fs.readFile("counts.json", (err, data) => {
+  fs.readFile("data/counts.json", (err, data) => {
     if (err) {
-      console.log(err);
+      res.send(err);
     } else {
       const counts = JSON.parse(data.toString());
       counts[type].counts += count;
       counts[type].users.push(username);
-      fs.writeFile("counts.json", JSON.stringify(counts), err => {
+      fs.writeFile("data/counts.json", JSON.stringify(counts), err => {
         console.log(err);
       });
       res.send({ status: "success" });
@@ -109,9 +109,9 @@ app.post("/api/counts", (req, res) => {
 });
 
 app.get("/api/vote", (req, res) => {
-  fs.readFile("counts.json", (err, data) => {
+  fs.readFile("data/counts.json", (err, data) => {
     if (err) {
-      console.log(err);
+      res.send(err);
     } else {
       res.send(JSON.parse(data.toString()));
     }
@@ -123,7 +123,6 @@ function vote(length, comments, route, type, username) {
     comments.voteCount[type].counts += 1;
     comments.voteCount[type].users.push(username);
   } else {
-    console.log(typeof route);
     if (length === route.length - 1)
       vote(length + 1, comments[route[length]], route, type, username);
     else vote(length + 1, comments[route[length]].reply, route, type, username);
@@ -134,13 +133,13 @@ app.post("/api/vote", (req, res) => {
   const route = req.body.route;
   const type = req.body.type;
   const username = req.body.username;
-  fs.readFile("comments.json", (err, data) => {
+  fs.readFile("data/comments.json", (err, data) => {
     if (err) {
-      console.log(err);
+      res.send(err);
     } else {
       const comments = JSON.parse(data.toString());
       vote(0, comments, route, type, username);
-      fs.writeFile("comments.json", JSON.stringify(comments), err => {
+      fs.writeFile("data/comments.json", JSON.stringify(comments), err => {
         console.log(err);
       });
       res.send({ status: "success" });
@@ -149,9 +148,9 @@ app.post("/api/vote", (req, res) => {
 });
 
 app.get("/api/comments", (req, res) => {
-  fs.readFile("comments.json", (err, data) => {
+  fs.readFile("data/comments.json", (err, data) => {
     if (err) {
-      console.log(err);
+      res.send(err);
     } else {
       res.send(JSON.parse(data.toString()));
     }
@@ -179,9 +178,9 @@ app.post("/api/comments", (req, res) => {
     }
   };
   const route = req.body.route;
-  fs.readFile("comments.json", (err, data) => {
+  fs.readFile("data/comments.json", (err, data) => {
     if (err) {
-      console.log(err);
+      res.send(err);
     } else {
       const comments = JSON.parse(data.toString());
       if (route === undefined) {
@@ -191,14 +190,13 @@ app.post("/api/comments", (req, res) => {
         pushReply(0, comments, route, comment);
       }
 
-      fs.writeFile("comments.json", JSON.stringify(comments), err => {
+      fs.writeFile("data/comments.json", JSON.stringify(comments), err => {
         console.log(err);
       });
       res.send({ status: "success" });
     }
   });
 });
-
 
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname + "/client/build/index.html"));

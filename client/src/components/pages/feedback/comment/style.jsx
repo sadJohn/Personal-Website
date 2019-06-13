@@ -1,11 +1,11 @@
-import styled from "styled-components"; 
-import Editor from './editor/Editor';
+import styled from "styled-components";
+import Editor from "./editor/Editor";
 
 export const Wrapper = styled.div`
   width: 800px;
   margin: 10px auto 0 auto;
   background-color: rgba(240, 240, 240, 0.8);
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   border-radius: 10px;
   text-shadow: 0px 0px 1px rgba(0, 0, 0, 0.5);
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26), 0 2px 10px 0 rgba(0, 0, 0, 0.22);
@@ -19,7 +19,7 @@ export const Container = styled.div`
 `;
 
 export const ReplyEditor = styled(Editor)`
-  
+  display: none;
 `;
 
 export const CommentEditor = styled(Editor)`
@@ -47,6 +47,15 @@ export const Username = styled.div`
   margin-bottom: 1rem;
   font-weight: bold;
 `;
+export const Authname = styled(Username)`
+  width: 50px;
+  height: 20px;
+  text-align: center;
+  line-height: 20px;
+  background-color: #777;
+  color: white;
+  border-radius: 5px;
+`;
 
 export const Message = styled.div`
   margin-left: 70px;
@@ -73,5 +82,3 @@ export const Reply = styled.div`
   margin-left: 20px;
   cursor: pointer;
 `;
-
-
