@@ -1,5 +1,4 @@
 import React, { useState, useCallback, useEffect } from "react";
-import "./App.css";
 import Nav from "./components/nav/Nav";
 import AuthContext from "./context/AuthContext";
 import UserManage from "./components/pages/usermanage/UserManage";
