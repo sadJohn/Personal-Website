@@ -8,6 +8,11 @@ export const StyledProfile = styled.div`
   align-items: center;
   width: 40%;
   height: 50%;
+
+  @media screen and (max-width: 600px) {
+    padding-top: 3rem;
+    height: 50%;
+  }
 `;
 
 export const StyledPhoto = styled.div`
@@ -26,11 +31,11 @@ export const StyledPhoto = styled.div`
 `;
 
 export const Name = styled.div`
-  width: 10em;
-  height: 3em;
-  font-size: 3.5em;
+  width: 5rem;
+  height: 4rem;
+  font-size: 1.75rem;
   text-align: center;
-  line-height: 3em;
+  line-height: 4rem;
   color: #F7FFEB;
   text-shadow: 0px 0px 6px rgba(0,0,0,0.7); 
   font-family: "Indie Flower", cursive;

@@ -3,18 +3,19 @@ import { Link as a } from "react-router-dom";
 import { StyledPhoto } from "../pages/home/introduction/Profile/style";
 
 export const Fixed = styled.div`
-  height: 10vh;
+  height: 100px;
   width: 100%;
   position: fixed;
   left: 0;
   top: 0;
   z-index: 100;
+  font-size: 0.5rem;
 `;
 
 export const PhotoWrapper = styled.div`
   position: absolute;
   width: 50px;
-  height: 10vh;
+  height: 100px;
   margin-left: 20px;
   display: flex;
   align-items: center;
@@ -51,6 +52,7 @@ export const Li = styled.li`
 export const Link = styled(a)`
   width: 60px;
   height: 60px;
+
   text-align: center;
   line-height: 60px;
   color: #ffffff;
@@ -59,6 +61,10 @@ export const Link = styled(a)`
   display: inline-block;
   border-radius: 50%;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26), 0 2px 10px 0 rgba(0, 0, 0, 0.22);
+
+  @media screen and (max-width: 800px) {
+    transform: scale(0.8);
+  }
 
   &.Home {
     background-color: #fc6170;
@@ -80,9 +86,13 @@ export const Div = styled.div`
   border-radius: 50%;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26), 0 2px 10px 0 rgba(0, 0, 0, 0.22);
 
+  @media screen and (max-width: 800px) {
+    transform: scale(0.8);
+  }
+
   &.Login {
     background-color: #dcdcdd;
-    margin-right: 10px;
+    margin-right: 0.5rem;
   }
   &.Signup {
     background-color: #7be19a;
@@ -90,9 +100,9 @@ export const Div = styled.div`
 `;
 
 export const User = styled.p`
-  font-size: 2.5rem;
+  font-size: 1.25rem;
   font-weight: bold;
   font-family: "Indie Flower", cursive;
   color: #424140;
-  text-shadow: 0px 0px 10px rgba(255,255,255,0.7);
+  text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.7);
 `;

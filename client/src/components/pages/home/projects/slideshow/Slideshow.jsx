@@ -3,18 +3,34 @@ import { TweenMax } from "gsap";
 import projects from "./projects";
 import { Container, SlideWrapper, Slide, SlideshowBtn } from "./style";
 
+const showProjects = window.innerWidth < 600 ? [projects[0]] : projects;
 const Slideshow = React.memo(() => {
   const [slideshow, setSlideshow] = useState(projects);
+  const [show, setShow] = useState(showProjects);
 
   const back = () => {
     const newSlideshow = slideshow
       .slice(-1)
       .concat(slideshow.slice(0, projects.length - 1));
-    setSlideshow(newSlideshow);
+    if (window.innerWidth < 600) {
+      const newShow = [newSlideshow[0]];
+      setSlideshow(newSlideshow);
+      setShow(newShow);
+    } else {
+      setSlideshow(newSlideshow);
+      setShow(newSlideshow);
+    }
   };
   const forward = () => {
     const newSlideshow = slideshow.slice(1).concat(slideshow.slice(0, 1));
-    setSlideshow(newSlideshow);
+    if (window.innerWidth < 600) {
+      const newShow = [newSlideshow[0]];
+      setSlideshow(newSlideshow);
+      setShow(newShow);
+    } else {
+      setSlideshow(newSlideshow);
+      setShow(newSlideshow);
+    }
   };
 
   useEffect(() => {
@@ -31,7 +47,7 @@ const Slideshow = React.memo(() => {
       <SlideshowBtn onClick={back}>
         <i className="fas fa-angle-left" />
       </SlideshowBtn>
-      {slideshow.map(slide => (
+      {show.map(slide => (
         <SlideWrapper key={slide.id} className="img-link">
           <Slide {...slide} />
         </SlideWrapper>

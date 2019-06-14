@@ -19,15 +19,19 @@ export const Summary = styled.article`
   margin: 0 auto;
   padding: 50px 30px 50px 15px;
   color: black;
-  font-size: 1.6rem;
+  font-size: 0.8rem;
   line-height: 1.7;
   font-family: "Open Sans", sans-serif;
   border-radius: 10px;
   text-shadow: 0px 0px 1px rgba(0, 0, 0, 0.7);
+
+  @media screen and (max-width:800px) {
+    width: 100%;
+  }
   
 
   & p {
-    margin-top: 2rem;
+    margin-top: 1rem;
   }
   & a {
     color: #0583F2

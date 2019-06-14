@@ -1,8 +1,6 @@
 import styled from "styled-components";
 
 export const StyledBgCanvas = styled.canvas`
-  width: ${window.innerWidth}px;
-  height: ${window.innerHeight*4}px;
   background: linear-gradient(
     #B8D0D9 0%,
     #B8D0D9 25%,

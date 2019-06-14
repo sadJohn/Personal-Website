@@ -7,7 +7,6 @@ time, mark, audio, video {
 	margin: 0;
 	padding: 0;
 	border: 0;
-	font-size: 100%;
 	vertical-align: baseline;
 }
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
@@ -38,12 +37,16 @@ q:before, q:after {
 }
 /* end reset browser styles */
 html {
-  font-size: 10px;
+  font-size: 20px;
 }
 body::-webkit-scrollbar {
   width: 0;
 }
-body {
-	min-width: 1000px;
+
+@media screen and (max-width: 800px) {
+	html {
+		font-size: 12px;
+	}
 }
+
 

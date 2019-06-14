@@ -7,28 +7,28 @@ export const Container = styled(Wrapper)`
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  padding: 5rem 10%;
+  padding: 2.5rem 10%;
 `;
 
 export const Title = styled.div`
-  top: 5rem;
-  height: 4rem;
+  top: 2.5rem;
+  height: 2rem;
   text-align: center;
-  line-height: 4rem;
-  font-size: 4rem;
+  line-height: 2rem;
+  font-size: 2rem;
   color: #ffd747;
   text-shadow: 0px 0px 1px rgba(255,255,255,0.7); 
   font-family: "Indie Flower", cursive;
 `;
 
 export const Div = styled.div`
-  font-size: 2.5rem;
+  font-size: 1.75rem;
   color: #ffd747;
   font-family: "Indie Flower", cursive;
 
   & i {
-    font-size: 3rem;
-    margin-left: 2rem;
+    font-size: 1.5rem;
+    margin-left: 1rem;
   }
 `;
 export const A = styled.a`

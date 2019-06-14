@@ -1,37 +1,49 @@
 import styled from "styled-components";
 
-
 export const StyledInfo = styled.div`
   width: 35%;
   height: 70%;
-  padding-left: 1em;
+  padding-left: 0.5rem;
   position: relative;
+  overflow: auto;
+
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3);
+    background-color: #f5f5f5;
+  }
+
+  ::-webkit-scrollbar {
+    width: 3px;
+    background-color: #f5f5f5;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: #000000;
+    border: 2px solid #555555;
+    border-radius: 10px;
+  }
+
+  @media screen and (max-width: 600px) {
+    width: 60%;
+  }
 `;
 
 export const Title = styled.div`
-  font-size: 3rem;
-  color: #FFFF12;
+  font-size: 1.5rem;
+  color: #ffff12;
   font-family: "Indie Flower", cursive;
   margin-top: 10px;
-  text-shadow: 0px 0px 3px rgba(255,255,255,0.7); 
+  text-shadow: 0px 0px 3px rgba(255, 255, 255, 0.7);
 `;
 
 export const P = styled.div`
-  font-size: 1.8rem;
+  font-size: 0.9rem;
   line-height: 1.4;
-  color: #F7FFEB;
-  text-shadow: 0px 0px 3px rgba(0,0,0,0.7); 
-  font-family: 'Open Sans', sans-serif;
+  color: #f7ffeb;
+  text-shadow: 0px 0px 3px rgba(0, 0, 0, 0.7);
+  font-family: "Open Sans", sans-serif;
 
   & ul {
     list-style: disc;
   }
-`;
-
-export const Img = styled.img`
-  position: absolute;
-  width: 180px;
-  height: 180px;
-  top: -120px;
-  right: -50px;
 `;

@@ -5,4 +5,17 @@ export const StyledIntro = styled(Wrapper)`
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
+
+  @media screen and (max-width: 600px) {
+    flex-direction: column;
+  }
+`;
+
+export const Img = styled.img`
+  position: absolute;
+  width: 9rem;
+  height: 9rem;
+  top: 0;
+  right: 50px;
 `;

@@ -2,14 +2,16 @@ import styled from "styled-components";
 import { Link, Img } from "../../../../common/imglink/style";
 
 export const LearnLink = styled(Link)`
-  width: 100px;
-  height: 100px;
+  width: 100%;
+  height: 55.5%;
   border-radius: 50%;
 `;
 
 export const LearnImg = Img;
 
 export const StyledLearn = styled.div`
+  width: 5rem;
+  height: 9rem;
   position: absolute;
   :hover div {
     visibility: visible;
@@ -20,8 +22,9 @@ export const MenuItem = styled.div`
   height: 50%;
   cursor: pointer;
   text-align: center;
-  line-height: 40px;
-  border-radius: 2em;
+  line-height: 2rem;
+  border-radius: 1rem;
+  font-size: 0.5rem;
   background-color: #e91e63;
   color: #ffffff;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26), 0 2px 10px 0 rgba(0, 0, 0, 0.22);
@@ -36,9 +39,8 @@ export const MenuItem = styled.div`
 
 export const Menu = styled.div`
   visibility: hidden;
-  width: 80px;
-  height: 80px;
-  /* transform: translateX(80px); */
+  width: 80%;
+  height: 44.4%;
   transform: ${props =>
     props.phase === 2 ? "translateX(-80px)" : "translateX(80px)"};
 `;

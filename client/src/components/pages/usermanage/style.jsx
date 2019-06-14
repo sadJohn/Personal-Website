@@ -13,9 +13,9 @@ export const Wrapper = styled.div`
 `;
 
 export const Container = styled.div`
-  width: 400px;
-  height: 400px;
-  padding: 50px 0;
+  width: 20rem;
+  height: 20rem;
+  padding: 2.5rem 0;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -25,22 +25,22 @@ export const Container = styled.div`
   background-color: white;
 `;
 export const Item = styled.div`
-  font-size: 2em;
+  font-size: 1rem;
   font-family: "Montserrat", sans-serif;
 `;
 
 export const Input = styled.input`
-  width: 300px;
+  width: 15rem;
   display: block;
   font-size: inherit;
-  height: 40px;
+  height: 2rem;
   border-radius: 5px;
   border: 1px solid #ccc;
 `;
 export const Button = styled.button`
-  font-size: 2em;
-  width: 300px;
-  height: 40px;
+  font-size: 1rem;
+  width: 15rem;
+  height: 2rem;
   border-radius: 5px;
   border: 1px solid #ccc;
   background-color: #009a61;
@@ -53,9 +53,9 @@ export const Button = styled.button`
 `;
 
 export const Invalid = styled.div`
-  font-size: 1.5rem;
+  font-size: 0.75rem;
   color: red;
-  width: 300px;
-  height: 30px;
-  line-height: 30px;
+  width: 15rem;
+  height: 1.5rem;
+  line-height: 1.5rem;
 `;

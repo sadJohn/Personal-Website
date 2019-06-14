@@ -9,10 +9,14 @@ export const Wrapper = styled.div`
   border-radius: 10px;
   text-shadow: 0px 0px 1px rgba(0, 0, 0, 0.5);
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26), 0 2px 10px 0 rgba(0, 0, 0, 0.22);
+
+  @media screen and (max-width: 800px) {
+    width: 100%;
+  }
 `;
 
 export const Container = styled.div`
-  width: 700px;
+  width: 87.5%;
   margin: 0 auto;
   padding: 50px 0 50px 0;
   position: relative;
@@ -29,22 +33,28 @@ export const CommentEditor = styled(Editor)`
 export const CommentsUl = styled.ul`
   list-style: none;
   padding: 0;
-  margin-top: 80px;
+  margin-top: 4rem;
 
   & ul {
-    margin-top: 10px;
+    margin-top: 0.5rem;
+  }
+
+  @media screen and (max-width: 600px) {
+    & button {
+      right: -3.5rem;
+    }
   }
 `;
 export const Li = styled.li`
   width: 100%;
   min-height: 50px;
-  margin-bottom: 1.5rem;
-  font-size: 1.5rem;
+  margin-bottom: 0.75rem;
+  font-size: 0.75rem;
 `;
 
 export const Username = styled.div`
-  margin-left: 70px;
-  margin-bottom: 1rem;
+  margin-left: 3.5rem;
+  margin-bottom: 0.5rem;
   font-weight: bold;
 `;
 export const Authname = styled(Username)`
@@ -58,27 +68,27 @@ export const Authname = styled(Username)`
 `;
 
 export const Message = styled.div`
-  margin-left: 70px;
+  margin-left: 3.5rem;
 `;
 
 export const Options = styled.div`
-  margin-left: 70px;
+  margin-left: 3.5rem;
 `;
 
 export const Vote = styled.div`
   display: inline-block;
-  margin: 5px 10px;
+  margin: 0.25rem 0.5rem;
   cursor: pointer;
   position: relative;
 `;
 
 export const VoteCount = styled.div`
   position: absolute;
-  left: 20px;
+  left: 1rem;
 `;
 
 export const Reply = styled.div`
   display: inline-block;
-  margin-left: 20px;
+  margin-left: 1rem;
   cursor: pointer;
 `;

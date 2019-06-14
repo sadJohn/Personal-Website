@@ -34,40 +34,40 @@ export class Circle {
     this.ctx.fill();
   }
 
-  update() {
+  update(width, height) {
     const dx = mouse.x - this.x;
     const dy = mouse.y - this.y;
     const distance = dx * dx + dy * dy;
 
-    if (this.x + this.radius > window.innerWidth || this.x - this.radius < 0) {
+    if (this.x + this.radius > width || this.x - this.radius < 0) {
       this.vx = -this.vx;
     }
     if (
-      this.y + this.radius > window.innerHeight * 4 ||
-      (this.y + this.radius > window.innerHeight * 3 - 0.5 &&
-        this.y - this.radius < window.innerHeight * 3 + 0.5) ||
-      (this.y + this.radius > window.innerHeight * 2 - 0.5 &&
-        this.y - this.radius < window.innerHeight * 2 + 0.5) ||
-      (this.y + this.radius > window.innerHeight - 0.5 &&
-        this.y - this.radius < window.innerHeight + 0.5) ||
+      this.y + this.radius > height * 4 ||
+      (this.y + this.radius > height * 3 - 0.5 &&
+        this.y - this.radius < height * 3 + 0.5) ||
+      (this.y + this.radius > height * 2 - 0.5 &&
+        this.y - this.radius < height * 2 + 0.5) ||
+      (this.y + this.radius > height - 0.5 &&
+        this.y - this.radius < height + 0.5) ||
       this.y - this.radius < 0
     ) {
       this.vy = -this.vy;
     }
 
     if (
-      this.y < window.innerHeight * 4 &&
-      this.y > window.innerHeight * 3 + 0.5
+      this.y < height * 4 &&
+      this.y > height * 3 + 0.5
     ) {
       this.circleColor = this.learnColor;
     } else if (
-      this.y < window.innerHeight * 3 &&
-      this.y > window.innerHeight * 2 + 0.5
+      this.y < height * 3 &&
+      this.y > height * 2 + 0.5
     ) {
       this.circleColor = this.projectsColor;
     } else if (
-      this.y < window.innerHeight * 2 &&
-      this.y > window.innerHeight + 0.5
+      this.y < height * 2 &&
+      this.y > height + 0.5
     ) {
       this.circleColor = this.introColor;
     } else {

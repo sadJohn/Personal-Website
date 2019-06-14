@@ -2,7 +2,7 @@ import styled from "styled-components";
 import ImgLink from "../../../../common/imglink/ImgLink";
 
 export const Container = styled.div`
-  width: 80%;
+  width: 100%;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -12,11 +12,11 @@ export const Slide = styled(ImgLink)`
   width: 100%;
 `;
 export const SlideWrapper = styled.div`
-  width: 20%;
+  width: 150px;
 `;
 
 export const SlideshowBtn = styled.div`
-  width: 6%;
+  width: 50px;
   border-radius: 50%;
   background-color: #e91e63;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26), 0 2px 10px 0 rgba(0, 0, 0, 0.22);
@@ -33,8 +33,8 @@ export const SlideshowBtn = styled.div`
   }
 
   & i {
-    transform: translateX(-8px);
-    font-size: 4rem;
+    transform: translateX(-0.4rem);
+    font-size: 2rem;
     color: white;
   }
   :hover {

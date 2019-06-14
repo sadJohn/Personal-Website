@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Q, Title, Ul, Li, A } from "./style";
+import { Container, Q, Title, Ul, Li, A, CopyRight } from "./style";
 import "@fortawesome/fontawesome-free/css/all.css";
 
 const Contact = () => {
@@ -34,10 +34,10 @@ const Contact = () => {
           </A>
         </Li>
       </Ul>
-      <div>
+      <CopyRight>
         <i className="far fa-copyright" />2019 Johan, All rights reserved. Web
         developer.
-      </div>
+      </CopyRight>
     </Container>
   );
 };

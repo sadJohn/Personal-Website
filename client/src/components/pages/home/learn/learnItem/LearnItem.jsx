@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { LearnLink, LearnImg, StyledLearn, Menu, MenuItem } from "./style";
 
 const LearnItem = React.memo(({ id, href, src, alt, phase, onClick }) => {
@@ -9,6 +9,7 @@ const LearnItem = React.memo(({ id, href, src, alt, phase, onClick }) => {
       phase * 100,
     y: Math.random() * (window.innerHeight * 0.5)
   });
+  const learnItem = useRef(null);
 
   useEffect(() => {
     setPosition({
@@ -23,20 +24,23 @@ const LearnItem = React.memo(({ id, href, src, alt, phase, onClick }) => {
   useEffect(() => {
     let x;
     let y;
-    let dx = Math.random() * 2 - 1;
-    let dy = Math.random() * 2 - 1;
+    let dx = Math.random() - 0.5;
+    let dy = Math.random() - 0.5;
     let intervalID;
 
     intervalID = setInterval(() => {
       setPosition(prevPosition => {
         if (
-          prevPosition.x > ((phase + 1) * window.innerWidth) / 3 - 100 ||
+          prevPosition.x >
+            ((phase + 1) * window.innerWidth) / 3 -
+              learnItem.current.offsetWidth ||
           prevPosition.x < (phase * window.innerWidth) / 3
         ) {
           dx = -dx;
         }
         if (
-          prevPosition.y > window.innerHeight * 0.9 - 180 ||
+          prevPosition.y >
+            window.innerHeight * 0.9 - learnItem.current.offsetHeight ||
           prevPosition.y < -80
         ) {
           dy = -dy;
@@ -45,26 +49,30 @@ const LearnItem = React.memo(({ id, href, src, alt, phase, onClick }) => {
         y = prevPosition.y + dy;
         return { x, y };
       });
-    }, 0);
+    }, 16);
     return () => {
       clearInterval(intervalID);
     };
   }, [phase]);
   return (
     <StyledLearn
+      ref={learnItem}
       style={{
         transform: `translate(${position.x}px,${position.y}px)`
       }}
     >
-      <Menu className="menu" phase={phase}>
-        {[0, 1, 2].map(p =>
-          p === phase ? null : (
-            <MenuItem key={p} onClick={onClick} data-value={p} data-id={id}>
-              {["Confident", "Learning", "NotYet"][p]}
-            </MenuItem>
-          )
-        )}
-      </Menu>
+      {window.innerWidth > 600 ? (
+        <Menu className="menu" phase={phase}>
+          {[0, 1, 2].map(p =>
+            p === phase ? null : (
+              <MenuItem key={p} onClick={onClick} data-value={p} data-id={id}>
+                {["Confident", "Learning", "NotYet"][p]}
+              </MenuItem>
+            )
+          )}
+        </Menu>
+      ) : null}
+
       <LearnLink href={href}>
         <LearnImg src={src} alt={alt} />
       </LearnLink>

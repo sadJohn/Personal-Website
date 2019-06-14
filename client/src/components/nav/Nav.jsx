@@ -20,7 +20,6 @@ let scrollAction = window.pageYOffset;
 let scrollDirection;
 
 const Nav = React.memo(({ onLogin, onRegiste }) => {
-  console.log('Nav rendering...')
   const { isLogin, username } = useContext(AuthContext);
 
   const scrollEvent = () => {

@@ -1,16 +1,19 @@
-# Personal-Website
+# 个人网站
 
-## Install
+## 安装启动
 
-### server
+### 服务端
 
+根目录下：
 ```
+$ npm install
 $ npm start
 ```
 
-### client
+### 客户端
 
 ```
 $ cd client
+$ npm install
 $ npm start
 ```
