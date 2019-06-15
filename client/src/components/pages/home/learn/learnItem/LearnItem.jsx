@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import { LearnLink, LearnImg, StyledLearn, Menu, MenuItem } from "./style";
 
 const LearnItem = React.memo(({ id, href, src, alt, phase, onClick }) => {

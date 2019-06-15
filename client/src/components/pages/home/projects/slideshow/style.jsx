@@ -4,10 +4,14 @@ import back from "../../../../../assets/images/back.png";
 import forward from "../../../../../assets/images/forward.png";
 
 export const Container = styled.div`
-  width: 100%;
+  width: 60%;
   display: flex;
   justify-content: space-around;
   align-items: center;
+
+  @media screen and (max-width: 800px) {
+    width: 100%;
+  }
 `;
 
 export const Slide = styled(ImgLink)`

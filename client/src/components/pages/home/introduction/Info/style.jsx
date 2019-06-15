@@ -25,6 +25,7 @@ export const StyledInfo = styled.div`
 
   @media screen and (max-width: 600px) {
     width: 60%;
+    margin-bottom: 2rem;
   }
 `;
 

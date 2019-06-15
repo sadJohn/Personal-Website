@@ -38,10 +38,9 @@ export const Summary = styled.article`
   }
 `;
 
-export const Like = styled.div`
-  display: inline-block;
+export const Like = styled.span`
   position: relative;
-  margin: 0 20px;
+  margin: 0 1rem;
   cursor: pointer;
 
   & img {
@@ -76,7 +75,7 @@ export const Like = styled.div`
   }
 `;
 
-export const Count = styled.div`
+export const Count = styled.span`
   position: absolute;
-  left: 25px;
+  left: 1.25rem;
 `;

@@ -119,9 +119,17 @@ const Feedback = React.memo(() => {
         <p>
           To make this website, I used some popular technologies. I used React
           to build UI, GSAP to create animation, and Express to build a server.
+          I earned a lot of fun, also encountered a lot of difficulties and I
+          solved most of them. Mobile adaptation is the most headache one, and
+          finaly I did it through my efforts, although far from perfection.
         </p>
         <p>
-          How do you like my page?{" "}
+          I know that this website is lack of content, which is the most
+          importent to a website. I hope to experience more in the future to
+          Rich the content.
+        </p>
+        <p>
+          So, how do you like my page?{" "}
           <Like onClick={countSubmit} data-type="likeCount">
             <Count>{likeCount}</Count>
             <i className="fas fa-thumbs-up" />

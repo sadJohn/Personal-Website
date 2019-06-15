@@ -88,7 +88,7 @@ const Comment = React.memo(() => {
     } else {
       return comments.map(comment => {
         return (
-          <Li>
+          <Li key={comment.route}>
             <Photo>
               <Img src={photo} alt="user" />
             </Photo>
@@ -106,7 +106,7 @@ const Comment = React.memo(() => {
                 data-type="voteup"
               >
                 <VoteCount>{comment.voteCount.voteup.counts}</VoteCount>
-                <i class="fas fa-chevron-up" />
+                <i className="fas fa-chevron-up" />
               </Vote>
               <Vote
                 onClick={voteSubmit}
@@ -114,7 +114,7 @@ const Comment = React.memo(() => {
                 data-type="votedown"
               >
                 <VoteCount>{comment.voteCount.votedown.counts}</VoteCount>
-                <i class="fas fa-chevron-down" />
+                <i className="fas fa-chevron-down" />
               </Vote>
               <Reply onClick={showEditor}>Reply</Reply>
               <ReplyEditor

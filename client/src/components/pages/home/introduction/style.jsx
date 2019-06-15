@@ -18,4 +18,5 @@ export const Img = styled.img`
   height: 9rem;
   top: 0;
   right: 50px;
+  z-index: 1000;
 `;
