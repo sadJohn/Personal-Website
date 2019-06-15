@@ -44,17 +44,13 @@ const Slideshow = React.memo(() => {
   });
   return (
     <Container>
-      <SlideshowBtn onClick={back}>
-        <i className="fas fa-angle-left" />
-      </SlideshowBtn>
+      <SlideshowBtn className="back" onClick={back} />
       {show.map(slide => (
         <SlideWrapper key={slide.id} className="img-link">
           <Slide {...slide} />
         </SlideWrapper>
       ))}
-      <SlideshowBtn onClick={forward}>
-        <i className="fas fa-angle-right" />
-      </SlideshowBtn>
+      <SlideshowBtn className="forward" onClick={forward} />
     </Container>
   );
 });

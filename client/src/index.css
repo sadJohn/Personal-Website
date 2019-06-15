@@ -43,7 +43,7 @@ body::-webkit-scrollbar {
   width: 0;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 600px) {
 	html {
 		font-size: 12px;
 	}

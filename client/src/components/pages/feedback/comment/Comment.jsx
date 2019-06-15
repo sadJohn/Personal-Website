@@ -121,9 +121,8 @@ const Comment = React.memo(() => {
                 fatchComments={fatchComments}
                 onCancel={cacelComment}
                 route={comment.route}
-              >
-                Reply
-              </ReplyEditor>
+                replyBtn
+              />
               <CommentsUl>{displayComments(comment.reply)}</CommentsUl>
             </Options>
           </Li>
@@ -139,9 +138,7 @@ const Comment = React.memo(() => {
           fatchComments={fatchComments}
           onCancel={cacelComment}
           commentBtn
-        >
-          Comment
-        </CommentEditor>
+        />
 
         <CommentsUl>{displayComments(comments)}</CommentsUl>
       </Container>

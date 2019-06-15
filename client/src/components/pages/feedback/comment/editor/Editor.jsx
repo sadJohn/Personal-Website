@@ -1,18 +1,10 @@
 import React, { useState, useContext } from "react";
 import AuthContext from ".././../../../../context/AuthContext";
-import {
-  StyledEditor,
-  Photo,
-  Img,
-  Input,
-  CancelBtn,
-  Button,
-  Group
-} from "./style";
+import { StyledEditor, Photo, Img, Input, Button, Group } from "./style";
 import photo from "../../../../../assets/images/photo.jpg";
 
 const Editor = React.memo(
-  ({ className, fatchComments, children, onCancel, commentBtn, route }) => {
+  ({ className, fatchComments, replyBtn, onCancel, commentBtn, route }) => {
     const [comment, setComment] = useState("");
     const { isLogin, username } = useContext(AuthContext);
 
@@ -50,9 +42,12 @@ const Editor = React.memo(
         </Photo>
         <Input type="text" value={comment} onChange={onCommentChange} />
         <Group>
-          {commentBtn ? null : <CancelBtn onClick={onCancel}>Cancel</CancelBtn>}
-
-          <Button onClick={onComment.bind(this, route)}>{children}</Button>
+          {replyBtn ? (
+            <Button className="reply" onClick={onComment.bind(this, route)} />
+          ) : (
+            <Button className="comment" onClick={onComment.bind(this, route)} />
+          )}
+          {commentBtn ? null : <Button className="cancel" onClick={onCancel} />}
         </Group>
       </StyledEditor>
     );

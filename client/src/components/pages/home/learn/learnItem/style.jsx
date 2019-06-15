@@ -10,11 +10,16 @@ export const LearnLink = styled(Link)`
 export const LearnImg = Img;
 
 export const StyledLearn = styled.div`
-  width: 5rem;
-  height: 9rem;
+  width: 100px;
+  height: 180px;
   position: absolute;
   :hover div {
     visibility: visible;
+  }
+
+  @media screen and (max-width: 600px) {
+    width: 50px;
+  height: 90px;
   }
 `;
 export const MenuItem = styled.div`

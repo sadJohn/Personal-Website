@@ -9,7 +9,8 @@ import {
   Div,
   Photo,
   PhotoWrapper,
-  User
+  User,
+  Img
 } from "./style";
 import Feedback from "./../pages/feedback/Feedback";
 import Home from "./../pages/home/Home";
@@ -49,20 +50,20 @@ const Nav = React.memo(({ onLogin, onRegiste }) => {
   };
   return (
     <Router>
-      <Fixed>
+      <Fixed width={window.innerWidth}>
         <PhotoWrapper>
           <Photo onClick={toTop} />
         </PhotoWrapper>
         <StyledNav className="Nav">
           <Ul>
             <Li>
-              <Link className="Home" to="/">
-                HOME
+              <Link to="/">
+                <Img className="Home"/>
               </Link>
             </Li>
             <Li>
               <Link className="Feedback" to="/feedback/">
-                DISCUSS
+                <Img className="Feedback"/>
               </Link>
             </Li>
             {isLogin ? (
@@ -70,12 +71,8 @@ const Nav = React.memo(({ onLogin, onRegiste }) => {
             ) : (
               <>
                 <Li>
-                  <Div className="Login" onClick={onLogin}>
-                    Log in
-                  </Div>
-                  <Div className="Signup" onClick={onRegiste}>
-                    Sign up
-                  </Div>
+                  <Div className="Login" onClick={onLogin} />
+                  <Div className="Signup" onClick={onRegiste} />
                 </Li>
               </>
             )}

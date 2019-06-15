@@ -66,7 +66,7 @@ const Feedback = React.memo(() => {
         params={{
           particles: {
             number: {
-              value: 100
+              value: window.innerWidth < 600 ? 50 : 100
             },
             color: {
               value: "#000"

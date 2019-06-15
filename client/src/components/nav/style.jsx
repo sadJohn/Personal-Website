@@ -1,10 +1,14 @@
 import styled from "styled-components";
 import { Link as a } from "react-router-dom";
 import { StyledPhoto } from "../pages/home/introduction/Profile/style";
+import home from "../../assets/images/home.png";
+import discuss from "../../assets/images/discuss.png";
+import login from "../../assets/images/login.png";
+import signup from "../../assets/images/signup.png";
 
 export const Fixed = styled.div`
   height: 100px;
-  width: 100%;
+  width: ${props => props.width + "px"};
   position: fixed;
   left: 0;
   top: 0;
@@ -50,52 +54,42 @@ export const Li = styled.li`
 `;
 
 export const Link = styled(a)`
-  width: 60px;
-  height: 60px;
-
-  text-align: center;
-  line-height: 60px;
-  color: #ffffff;
-  text-shadow: 0px 0px 3px rgba(0, 0, 0, 0.7);
-  text-decoration: none;
+  width: 3rem;
+  height: 3rem;
   display: inline-block;
+`;
+export const Img = styled.div`
+  width: 100%;
+  height: 100%;
   border-radius: 50%;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26), 0 2px 10px 0 rgba(0, 0, 0, 0.22);
 
-  @media screen and (max-width: 800px) {
-    transform: scale(0.8);
-  }
-
   &.Home {
-    background-color: #fc6170;
+    background: url(${home}) no-repeat;
+    background-size: 100% 100%;
   }
   &.Feedback {
-    background-color: #ff8a47;
+    background: url(${discuss}) no-repeat;
+    background-size: 100% 100%;
   }
 `;
 
 export const Div = styled.div`
-  width: 50px;
-  height: 50px;
-  text-align: center;
-  line-height: 50px;
-  color: #ffffff;
-  text-shadow: 0px 0px 3px rgba(0, 0, 0, 0.7);
+  width: 2.5rem;
+  height: 2.5rem;
   cursor: pointer;
   display: inline-block;
   border-radius: 50%;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26), 0 2px 10px 0 rgba(0, 0, 0, 0.22);
 
-  @media screen and (max-width: 800px) {
-    transform: scale(0.8);
-  }
-
   &.Login {
-    background-color: #dcdcdd;
+    background: url(${login}) no-repeat;
+    background-size: 100% 100%;
     margin-right: 0.5rem;
   }
   &.Signup {
-    background-color: #7be19a;
+    background: url(${signup}) no-repeat;
+    background-size: 100% 100%;
   }
 `;
 

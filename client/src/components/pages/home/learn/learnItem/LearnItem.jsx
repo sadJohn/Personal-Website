@@ -2,24 +2,42 @@ import React, { useState, useEffect, useRef } from "react";
 import { LearnLink, LearnImg, StyledLearn, Menu, MenuItem } from "./style";
 
 const LearnItem = React.memo(({ id, href, src, alt, phase, onClick }) => {
+  const [width, setWidth] = useState(window.innerWidth);
+  const [height, setHeight] = useState(window.innerHeight);
+  const [itemWidth, setItemWidth] = useState(width < 600 ? 50 : 100);
+  const [itemHeight, setItemHeight] = useState(width < 600 ? 90 : 180);
+
   const [position, setPosition] = useState({
     x:
-      ((window.innerWidth - 300) / 3) * Math.random() +
-      phase * ((window.innerWidth - 300) / 3) +
-      phase * 100,
-    y: Math.random() * (window.innerHeight * 0.5)
+      Math.random(
+        (width / 3) * phase + width / 3 - itemWidth - (width / 3) * phase
+      ) +
+      (width / 3) * phase,
+    y: Math.random() * (height * 0.5)
   });
-  const learnItem = useRef(null);
+  useEffect(() => {
+    const onResize = () => {
+      setWidth(window.innerWidth);
+      setHeight(window.innerHeight);
+      setItemWidth(window.innerWidth < 600 ? 50 : 100);
+      setItemHeight(window.innerHeight < 600 ? 90 : 180);
+    };
+    document.body.addEventListener("resize", onResize);
+    return () => {
+      document.body.removeEventListener("resize", onResize);
+    };
+  }, []);
 
   useEffect(() => {
     setPosition({
       x:
-        ((window.innerWidth - 300) / 3) * Math.random() +
-        phase * ((window.innerWidth - 300) / 3) +
-        phase * 100,
-      y: Math.random() * (window.innerHeight * 0.5)
+        Math.random(
+          (width / 3) * phase + width / 3 - itemWidth - (width / 3) * phase
+        ) +
+        (width / 3) * phase,
+      y: Math.random() * (height * 0.5)
     });
-  }, [phase]);
+  }, [phase, height, width, itemWidth]);
 
   useEffect(() => {
     let x;
@@ -31,17 +49,14 @@ const LearnItem = React.memo(({ id, href, src, alt, phase, onClick }) => {
     intervalID = setInterval(() => {
       setPosition(prevPosition => {
         if (
-          prevPosition.x >
-            ((phase + 1) * window.innerWidth) / 3 -
-              learnItem.current.offsetWidth ||
-          prevPosition.x < (phase * window.innerWidth) / 3
+          prevPosition.x > ((phase + 1) * width) / 3 - itemWidth ||
+          prevPosition.x < (phase * width) / 3
         ) {
           dx = -dx;
         }
         if (
-          prevPosition.y >
-            window.innerHeight * 0.9 - learnItem.current.offsetHeight ||
-          prevPosition.y < -80
+          prevPosition.y > height * 0.9 - itemHeight ||
+          prevPosition.y < -(itemHeight * 0.444)
         ) {
           dy = -dy;
         }
@@ -53,25 +68,22 @@ const LearnItem = React.memo(({ id, href, src, alt, phase, onClick }) => {
     return () => {
       clearInterval(intervalID);
     };
-  }, [phase]);
+  }, [phase, height, itemHeight, width, itemWidth]);
   return (
     <StyledLearn
-      ref={learnItem}
       style={{
         transform: `translate(${position.x}px,${position.y}px)`
       }}
     >
-      {window.innerWidth > 600 ? (
-        <Menu className="menu" phase={phase}>
-          {[0, 1, 2].map(p =>
-            p === phase ? null : (
-              <MenuItem key={p} onClick={onClick} data-value={p} data-id={id}>
-                {["Confident", "Learning", "NotYet"][p]}
-              </MenuItem>
-            )
-          )}
-        </Menu>
-      ) : null}
+      <Menu className="menu" phase={phase}>
+        {[0, 1, 2].map(p =>
+          p === phase ? null : (
+            <MenuItem key={p} onClick={onClick} data-value={p} data-id={id}>
+              {["Confident", "Learning", "NotYet"][p]}
+            </MenuItem>
+          )
+        )}
+      </Menu>
 
       <LearnLink href={href}>
         <LearnImg src={src} alt={alt} />
