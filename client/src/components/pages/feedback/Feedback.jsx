@@ -10,6 +10,17 @@ const Feedback = React.memo(() => {
   const [likeCount, setLikeCount] = useState(0);
   const [dislikeCount, setDislikeCount] = useState(0);
   const { isLogin, username } = useContext(AuthContext);
+  const [width, setWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    const onResize = () => {
+      setWidth(window.innerWidth);
+    };
+    window.addEventListener("resize", onResize);
+    return () => {
+      window.removeEventListener("resize", onResize);
+    };
+  }, []);
 
   const fatchCount = async () => {
     try {
@@ -66,7 +77,7 @@ const Feedback = React.memo(() => {
         params={{
           particles: {
             number: {
-              value: window.innerWidth < 600 ? 50 : 100
+              value: width < 600 ? 50 : 100
             },
             color: {
               value: "#000"

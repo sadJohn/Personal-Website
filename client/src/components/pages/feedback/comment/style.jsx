@@ -33,7 +33,7 @@ export const CommentEditor = styled(Editor)`
 export const CommentsUl = styled.ul`
   list-style: none;
   padding: 0;
-  margin-top: 4rem;
+  margin-top: 1rem;
 
   & ul {
     margin-top: 0.5rem;

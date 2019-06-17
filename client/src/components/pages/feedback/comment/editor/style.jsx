@@ -5,7 +5,7 @@ import cancel from "../../../../../assets/images/cancel.png";
 
 export const StyledEditor = styled.div`
   width: 100%;
-  margin-bottom: 2.5rem;
+  height: 5.5rem;
   position: relative;
   display: none;
 `;
@@ -26,25 +26,28 @@ export const Img = styled.img`
 `;
 
 export const Input = styled.input`
-  display: inline-block;
-
-  width: 85%;
+  display: block;
+  position: absolute;
+  right: 0;
+  width: 90%;
   height: 2.5rem;
-  vertical-align: bottom;
   border: 1px solid #ccc;
-  margin-left: 3.5rem;
   padding-left: 1.25rem;
   font-size: 1.25rem;
   border-radius: 50px;
   outline: none;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26), 0 2px 10px 0 rgba(0, 0, 0, 0.22);
+
+  @media screen and (max-width: 400px) {
+    width: 85%;
+  }
 `;
 export const Group = styled.div`
   position: absolute;
   width: 8rem;
   height: 2.5rem;
   top: 3rem;
-  right: 1rem;
+  right: 0;
 `;
 export const Button = styled.div`
   width: 4rem;

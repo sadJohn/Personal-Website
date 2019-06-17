@@ -9,9 +9,8 @@ const LearnItem = React.memo(({ id, href, src, alt, phase, onClick }) => {
 
   const [position, setPosition] = useState({
     x:
-      Math.random(
-        (width / 3) * phase + width / 3 - itemWidth - (width / 3) * phase
-      ) +
+      Math.random() *
+        ((width / 3) * phase + width / 3 - itemWidth - (width / 3) * phase) +
       (width / 3) * phase,
     y: Math.random() * (height * 0.5)
   });
@@ -19,21 +18,31 @@ const LearnItem = React.memo(({ id, href, src, alt, phase, onClick }) => {
     const onResize = () => {
       setWidth(window.innerWidth);
       setHeight(window.innerHeight);
-      setItemWidth(window.innerWidth < 600 ? 50 : 100);
+      const itemWidth = window.innerWidth < 600 ? 50 : 100;
+      setItemWidth(itemWidth);
       setItemHeight(window.innerHeight < 600 ? 90 : 180);
+      setPosition({
+        x:
+          Math.random() *
+            ((window.innerWidth / 3) * phase +
+              window.innerWidth / 3 -
+              itemWidth -
+              (window.innerWidth / 3) * phase) +
+          (window.innerWidth / 3) * phase,
+        y: Math.random() * (window.innerHeight * 0.5)
+      });
     };
-    document.body.addEventListener("resize", onResize);
+    window.addEventListener("resize", onResize);
     return () => {
-      document.body.removeEventListener("resize", onResize);
+      window.removeEventListener("resize", onResize);
     };
-  }, []);
+  }, [width, height, itemWidth, phase]);
 
   useEffect(() => {
     setPosition({
       x:
-        Math.random(
-          (width / 3) * phase + width / 3 - itemWidth - (width / 3) * phase
-        ) +
+        Math.random() *
+          ((width / 3) * phase + width / 3 - itemWidth - (width / 3) * phase) +
         (width / 3) * phase,
       y: Math.random() * (height * 0.5)
     });

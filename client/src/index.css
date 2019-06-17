@@ -37,13 +37,14 @@ q:before, q:after {
 }
 /* end reset browser styles */
 html {
-  font-size: 20px;
+	font-size: 20px;
+	min-width: 300px;
 }
 body::-webkit-scrollbar {
   width: 0;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 700px) {
 	html {
 		font-size: 12px;
 	}

@@ -8,11 +8,11 @@ import signup from "../../assets/images/signup.png";
 
 export const Fixed = styled.div`
   height: 100px;
-  width: ${props => props.width + "px"};
+  width: 100%;
   position: fixed;
   left: 0;
   top: 0;
-  z-index: 100;
+  z-index: 10000;
   font-size: 0.5rem;
 `;
 

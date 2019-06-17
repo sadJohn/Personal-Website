@@ -3,10 +3,10 @@ import { TweenMax } from "gsap";
 import projects from "./projects";
 import { Container, SlideWrapper, Slide, SlideshowBtn } from "./style";
 
-const showProjects = window.innerWidth < 600 ? [projects[0]] : projects;
+
 const Slideshow = React.memo(() => {
-  const [slideshow, setSlideshow] = useState(projects);
-  const [show, setShow] = useState(showProjects);
+  const [slideshow, setSlideshow] = useState([]);
+  const [show, setShow] = useState([]);
 
   const back = () => {
     const newSlideshow = slideshow
@@ -40,8 +40,31 @@ const Slideshow = React.memo(() => {
     };
   });
   useEffect(() => {
+    if(window.innerWidth < 600) {
+      setSlideshow([projects[0]])
+      setShow([projects[0]])
+    } else {
+      setSlideshow(projects)
+      setShow(projects)
+    }
+  }, []);
+  useEffect(() => {
     TweenMax.fromTo(".img-link", 1.5, { opacity: 0.2 }, { opacity: 1 });
   });
+  useEffect(() => {
+    const onResize = () => {
+      if(window.innerWidth < 600) {
+        setShow([projects[0]])
+      } else {
+        setShow(projects)
+      }
+    }
+    window.addEventListener('resize', onResize)
+    return () => {
+      window.removeEventListener('resize', onResize)
+    }
+  }, []);
+  console.log(window.innerWidth)
   return (
     <Container>
       <SlideshowBtn className="back" onClick={back} />

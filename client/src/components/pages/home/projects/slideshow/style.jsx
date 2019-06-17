@@ -9,16 +9,16 @@ export const Container = styled.div`
   justify-content: space-around;
   align-items: center;
 
-  @media screen and (max-width: 800px) {
+  @media screen and (max-width: 1200px) {
     width: 100%;
   }
 `;
 
 export const Slide = styled(ImgLink)`
-  width: 100%;
 `;
 export const SlideWrapper = styled.div`
   width: 7.5rem;
+  height: 7.5rem;
 `;
 
 export const SlideshowBtn = styled.div`

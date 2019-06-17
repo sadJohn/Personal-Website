@@ -12,6 +12,9 @@ export const Container = styled(Wrapper)`
   @media screen and (max-width: 800px) {
     padding: 2.5rem 0;
   }
+  @media screen and (max-width: 700px) {
+    padding: 2.5rem 10%;
+  }
   @media screen and (max-width: 600px) {
     padding: 2.5rem 20%;
   }

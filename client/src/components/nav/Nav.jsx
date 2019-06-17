@@ -50,7 +50,7 @@ const Nav = React.memo(({ onLogin, onRegiste }) => {
   };
   return (
     <Router>
-      <Fixed width={window.innerWidth}>
+      <Fixed>
         <PhotoWrapper>
           <Photo onClick={toTop} />
         </PhotoWrapper>
