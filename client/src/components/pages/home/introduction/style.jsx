@@ -17,6 +17,6 @@ export const Img = styled.img`
   width: 9rem;
   height: 9rem;
   top: 0;
-  right: 50px;
+  left: 50px;
   z-index: 1000;
 `;

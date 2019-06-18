@@ -14,7 +14,7 @@ const Info = React.memo(() => {
         I like coding, especially web developement and computer graphics. You
         can find out some projects I made in the section below. I like reading,
         do you like <i>Love in the Time of Cholera</i>? If so, we are friends! I
-        like Pokémon, do you know the Pokémon in the upper right corner? Can't
+        like Pokémon, do you know the Pokémon in the upper left corner? Can't
         wait to play Pokémon Sword and Shield!
       </P>
       <Title>Coals</Title>
