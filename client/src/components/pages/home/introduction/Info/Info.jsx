@@ -11,11 +11,10 @@ const Info = React.memo(() => {
       </P>
       <Title>Hobbies</Title>
       <P>
-        I like coding, especially web developement and computer graphics. You
-        can find out some projects I made in the section below. I like reading,
-        do you like <i>Love in the Time of Cholera</i>? If so, we are friends! I
-        like Pokémon, do you know the Pokémon in the upper left corner? Can't
-        wait to play Pokémon Sword and Shield!
+        I like coding, especially web developement and computer graphics. I like
+        reading, do you like <i>Love in the Time of Cholera</i>? I like Pokémon,
+        do you know the Pokémon in the upper left corner? Can't wait to play
+        Pokémon Sword and Shield!
       </P>
       <Title>Coals</Title>
       <P>
@@ -25,7 +24,6 @@ const Info = React.memo(() => {
           <li>Buy a Nintendo Switch.</li>
           <li>Make new friends</li>
           <li>Make a girlfriend. (1%)</li>
-          <li>Realize all the above wishes</li>
         </ul>
       </P>
     </StyledInfo>

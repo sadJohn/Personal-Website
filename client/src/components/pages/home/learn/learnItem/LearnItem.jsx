@@ -87,7 +87,7 @@ const LearnItem = React.memo(({ id, href, src, alt, phase, onClick }) => {
         transform: `translate(${position.x}px,${position.y}px)`
       }}
     >
-      <Menu className="menu" phase={phase}>
+      {windowWidth > 450 ? <Menu className="menu" phase={phase}>
         {[0, 1, 2].map(p =>
           p === phase ? null : (
             <MenuItem key={p} onClick={onClick} data-value={p} data-id={id}>
@@ -95,8 +95,7 @@ const LearnItem = React.memo(({ id, href, src, alt, phase, onClick }) => {
             </MenuItem>
           )
         )}
-      </Menu>
-
+      </Menu> : null}
       <LearnLink href={href}>
         <LearnImg src={src} alt={alt} />
       </LearnLink>
