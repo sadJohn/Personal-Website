@@ -17,23 +17,21 @@ const LearnItem = React.memo(({ id, href, src, alt, phase, onClick }) => {
   });
   useEffect(() => {
     const onResize = () => {
-      if (windowWidth > 450) {
-        setWidth(window.innerWidth);
-        setHeight(window.innerHeight);
-        const itemWidth = window.innerWidth < 600 ? 50 : 100;
-        setItemWidth(itemWidth);
-        setItemHeight(window.innerHeight < 600 ? 90 : 180);
-        setPosition({
-          x:
-            Math.random() *
-              ((window.innerWidth / 3) * phase +
-                window.innerWidth / 3 -
-                itemWidth -
-                (window.innerWidth / 3) * phase) +
-            (window.innerWidth / 3) * phase,
-          y: Math.random() * (window.innerHeight * 0.5)
-        });
-      }
+      setWidth(window.innerWidth);
+      setHeight(window.innerHeight);
+      const itemWidth = window.innerWidth < 600 ? 50 : 100;
+      setItemWidth(itemWidth);
+      setItemHeight(window.innerHeight < 600 ? 90 : 180);
+      setPosition({
+        x:
+          Math.random() *
+            ((window.innerWidth / 3) * phase +
+              window.innerWidth / 3 -
+              itemWidth -
+              (window.innerWidth / 3) * phase) +
+          (window.innerWidth / 3) * phase,
+        y: Math.random() * (window.innerHeight * 0.5)
+      });
     };
     window.addEventListener("resize", onResize);
     return () => {
@@ -87,15 +85,17 @@ const LearnItem = React.memo(({ id, href, src, alt, phase, onClick }) => {
         transform: `translate(${position.x}px,${position.y}px)`
       }}
     >
-      {windowWidth > 450 ? <Menu className="menu" phase={phase}>
-        {[0, 1, 2].map(p =>
-          p === phase ? null : (
-            <MenuItem key={p} onClick={onClick} data-value={p} data-id={id}>
-              {["Confident", "Learning", "NotYet"][p]}
-            </MenuItem>
-          )
-        )}
-      </Menu> : null}
+      {windowWidth > 450 ? (
+        <Menu className="menu" phase={phase}>
+          {[0, 1, 2].map(p =>
+            p === phase ? null : (
+              <MenuItem key={p} onClick={onClick} data-value={p} data-id={id}>
+                {["Confident", "Learning", "NotYet"][p]}
+              </MenuItem>
+            )
+          )}
+        </Menu>
+      ) : null}
       <LearnLink href={href}>
         <LearnImg src={src} alt={alt} />
       </LearnLink>

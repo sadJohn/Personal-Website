@@ -3,8 +3,6 @@ import { StyledBgCanvas } from "./style";
 import { Circle, mouse } from "./Circle";
 
 
-const width = window.innerWidth;
-const height = window.innerHeight;
 const Canvas = React.memo(() => {
   const canvasRef = useRef(null);
 
@@ -34,7 +32,7 @@ const Canvas = React.memo(() => {
   };
 
   useEffect(() => {
-    const setCanvas = () => window.innerWidth > 450 && initCanvas();
+    const setCanvas = () => initCanvas();
     window.addEventListener("resize", setCanvas);
     return () => {
       window.removeEventListener("resize", setCanvas);
@@ -71,14 +69,7 @@ const Canvas = React.memo(() => {
     function animate() {
       animationID = requestAnimationFrame(animate);
       ctx.clearRect(0, 0, window.innerWidth, window.innerHeight * 4);
-      circleArray.forEach(circle => {
-        if(width < 400) {
-          circle.update(width, height);
-        } else {
-          circle.update(window.innerWidth, window.innerHeight);
-        }
-        
-      });
+      circleArray.forEach(circle => circle.update(window.innerWidth, window.innerHeight));
     }
     animate();
 
