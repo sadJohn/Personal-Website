@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { LearnLink, LearnImg, StyledLearn, Menu, MenuItem } from "./style";
 
+const windowWidth = window.innerWidth;
 const LearnItem = React.memo(({ id, href, src, alt, phase, onClick }) => {
   const [width, setWidth] = useState(window.innerWidth);
   const [height, setHeight] = useState(window.innerHeight);
@@ -16,21 +17,23 @@ const LearnItem = React.memo(({ id, href, src, alt, phase, onClick }) => {
   });
   useEffect(() => {
     const onResize = () => {
-      setWidth(window.innerWidth);
-      setHeight(window.innerHeight);
-      const itemWidth = window.innerWidth < 600 ? 50 : 100;
-      setItemWidth(itemWidth);
-      setItemHeight(window.innerHeight < 600 ? 90 : 180);
-      setPosition({
-        x:
-          Math.random() *
-            ((window.innerWidth / 3) * phase +
-              window.innerWidth / 3 -
-              itemWidth -
-              (window.innerWidth / 3) * phase) +
-          (window.innerWidth / 3) * phase,
-        y: Math.random() * (window.innerHeight * 0.5)
-      });
+      if (windowWidth > 450) {
+        setWidth(window.innerWidth);
+        setHeight(window.innerHeight);
+        const itemWidth = window.innerWidth < 600 ? 50 : 100;
+        setItemWidth(itemWidth);
+        setItemHeight(window.innerHeight < 600 ? 90 : 180);
+        setPosition({
+          x:
+            Math.random() *
+              ((window.innerWidth / 3) * phase +
+                window.innerWidth / 3 -
+                itemWidth -
+                (window.innerWidth / 3) * phase) +
+            (window.innerWidth / 3) * phase,
+          y: Math.random() * (window.innerHeight * 0.5)
+        });
+      }
     };
     window.addEventListener("resize", onResize);
     return () => {
