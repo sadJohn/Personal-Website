@@ -5,7 +5,7 @@
   "proxy": "http://localhost:5000",
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.8.2",
-    "gsap": "^3.3.4",
+    "gsap": "^3.6.0",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
